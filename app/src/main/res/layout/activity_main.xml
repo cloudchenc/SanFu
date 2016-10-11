@@ -31,7 +31,8 @@
             android:drawableTop="@drawable/guide_home"
             android:gravity="center"
             android:onClick="change"
-            android:text="首页" />
+            android:text="首页"
+            android:textColor="@color/niss" />
 
         <RadioButton
             android:id="@+id/radioButton2"
@@ -42,7 +43,8 @@
             android:drawableTop="@drawable/guide_classify"
             android:gravity="center"
             android:onClick="change"
-            android:text="分类" />
+            android:text="分类"
+            android:textColor="@color/niss" />
 
         <RadioButton
             android:id="@+id/radioButton3"
@@ -53,7 +55,8 @@
             android:drawableTop="@drawable/guide_cart"
             android:gravity="center"
             android:onClick="change"
-            android:text="购物车" />
+            android:text="购物车"
+            android:textColor="@color/niss" />
 
         <RadioButton
             android:id="@+id/radioButton4"
@@ -64,6 +67,7 @@
             android:drawableTop="@drawable/guide_account"
             android:gravity="center"
             android:onClick="change"
-            android:text="我的" />
+            android:text="我的"
+            android:textColor="@color/niss" />
     </RadioGroup>
 </LinearLayout>
