@@ -23,6 +23,7 @@
                 android:src="@drawable/main_bottom_tab_category_focus" />
 
             <Button
+                android:id="@+id/search"
                 android:layout_width="70dp"
                 android:layout_height="30dp"
                 android:layout_marginLeft="28dp"

@@ -44,7 +44,6 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onDrawerOpened(View drawerView) {
-
             }
 
             @Override
