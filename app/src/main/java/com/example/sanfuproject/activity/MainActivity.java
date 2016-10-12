@@ -1,30 +1,21 @@
 package com.example.sanfuproject.activity;
 
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.util.DisplayMetrics;
-import android.view.Gravity;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.RadioButton;
 
 import com.example.sanfuproject.R;
-import com.slidingmenu.lib.SlidingMenu;
-import com.slidingmenu.lib.app.SlidingFragmentActivity;
-
-import org.xutils.x;
 
 import fragment.AccountFrag;
 import fragment.CartFrag;
 import fragment.ClassifyFrag;
 import fragment.HomeFrag;
+import fragment.LeftFrag;
 import fragment.RightFrag;
 
-import static android.R.attr.width;
 import static com.example.sanfuproject.activity.utils.Constants.drawerLayout;
 
 public class MainActivity extends AppCompatActivity {
@@ -42,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void initDrawerLayout() {
         drawerLayout = (DrawerLayout) findViewById(R.id.drawerlayout);
-        drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED, Gravity.RIGHT);
+        // drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED, Gravity.RIGHT);
         drawerLayout.setDrawerListener(new DrawerLayout.DrawerListener() {
             @Override
             public void onDrawerSlide(View drawerView, float slideOffset) {
@@ -56,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onDrawerClosed(View drawerView) {
-                drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED, Gravity.RIGHT);
+                // drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED, Gravity.RIGHT);
             }
 
             @Override
@@ -64,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+        getSupportFragmentManager().beginTransaction().add(R.id.left_frame, new LeftFrag()).commit();
         getSupportFragmentManager().beginTransaction().add(R.id.right_frame, new RightFrag()).commit();
     }
 

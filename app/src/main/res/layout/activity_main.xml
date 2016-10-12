@@ -6,6 +6,14 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true">
 
+    <!--划出菜单后，最大剩余部分为65dp-->
+    <FrameLayout
+        android:id="@+id/left_frame"
+        android:layout_width="280dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="left">
+    </FrameLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -37,7 +45,7 @@
                 android:gravity="center"
                 android:onClick="change"
                 android:text="首页"
-                android:textColor="@color/niss" />
+                android:textColor="@color/guidetext_color" />
 
             <RadioButton
                 android:id="@+id/radioButton2"
@@ -49,7 +57,7 @@
                 android:gravity="center"
                 android:onClick="change"
                 android:text="分类"
-                android:textColor="@color/niss" />
+                android:textColor="@color/guidetext_color" />
 
             <RadioButton
                 android:id="@+id/radioButton3"
@@ -61,7 +69,7 @@
                 android:gravity="center"
                 android:onClick="change"
                 android:text="购物车"
-                android:textColor="@color/niss" />
+                android:textColor="@color/guidetext_color" />
 
             <RadioButton
                 android:id="@+id/radioButton4"
@@ -73,7 +81,7 @@
                 android:gravity="center"
                 android:onClick="change"
                 android:text="我的"
-                android:textColor="@color/niss" />
+                android:textColor="@color/guidetext_color" />
         </RadioGroup>
     </LinearLayout>
 
