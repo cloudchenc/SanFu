@@ -58,8 +58,8 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-        getSupportFragmentManager().beginTransaction().add(R.id.left_frame, new LeftFrag()).commit();
-        getSupportFragmentManager().beginTransaction().add(R.id.right_frame, new RightFrag()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.left_frame, new LeftFrag()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.right_frame, new RightFrag()).commit();
     }
 
     private void setDefault(HomeFrag homeFrag, RadioButton radioButton) {
