@@ -6,7 +6,6 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-import com.example.sanfuproject.MainActivity;
 import com.example.sanfuproject.R;
 
 public class SplashActivity extends AppCompatActivity {

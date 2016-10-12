@@ -1,73 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_main"
+    android:id="@+id/drawerlayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:fitsSystemWindows="true">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:id="@+id/framelayout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"></FrameLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#404040"></View>
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/radioButton1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:button="@null"
+                android:drawableTop="@drawable/guide_home"
+                android:gravity="center"
+                android:onClick="change"
+                android:text="首页"
+                android:textColor="@color/niss" />
+
+            <RadioButton
+                android:id="@+id/radioButton2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:button="@null"
+                android:drawableTop="@drawable/guide_classify"
+                android:gravity="center"
+                android:onClick="change"
+                android:text="分类"
+                android:textColor="@color/niss" />
+
+            <RadioButton
+                android:id="@+id/radioButton3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:button="@null"
+                android:drawableTop="@drawable/guide_cart"
+                android:gravity="center"
+                android:onClick="change"
+                android:text="购物车"
+                android:textColor="@color/niss" />
+
+            <RadioButton
+                android:id="@+id/radioButton4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:button="@null"
+                android:drawableTop="@drawable/guide_account"
+                android:gravity="center"
+                android:onClick="change"
+                android:text="我的"
+                android:textColor="@color/niss" />
+        </RadioGroup>
+    </LinearLayout>
+
+    <!--划出菜单后，最大剩余部分为65dp-->
     <FrameLayout
-        android:id="@+id/framelayout"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"></FrameLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:background="#BFBFBF"></View>
-
-    <RadioGroup
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <RadioButton
-            android:id="@+id/radioButton1"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:button="@null"
-            android:drawableTop="@drawable/guide_home"
-            android:gravity="center"
-            android:onClick="change"
-            android:text="首页"
-            android:textColor="@color/niss" />
-
-        <RadioButton
-            android:id="@+id/radioButton2"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:button="@null"
-            android:drawableTop="@drawable/guide_classify"
-            android:gravity="center"
-            android:onClick="change"
-            android:text="分类"
-            android:textColor="@color/niss" />
-
-        <RadioButton
-            android:id="@+id/radioButton3"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:button="@null"
-            android:drawableTop="@drawable/guide_cart"
-            android:gravity="center"
-            android:onClick="change"
-            android:text="购物车"
-            android:textColor="@color/niss" />
-
-        <RadioButton
-            android:id="@+id/radioButton4"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:button="@null"
-            android:drawableTop="@drawable/guide_account"
-            android:gravity="center"
-            android:onClick="change"
-            android:text="我的"
-            android:textColor="@color/niss" />
-    </RadioGroup>
-</LinearLayout>
+        android:id="@+id/right_frame"
+        android:layout_width="392dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="right"></FrameLayout>
+</android.support.v4.widget.DrawerLayout>

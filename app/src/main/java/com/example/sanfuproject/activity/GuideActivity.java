@@ -12,18 +12,18 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
-import com.example.sanfuproject.MainActivity;
 import com.example.sanfuproject.R;
 
 import java.util.ArrayList;
 
 
-public class GuideActivity extends AppCompatActivity implements ViewPager.OnPageChangeListener{
+public class GuideActivity extends AppCompatActivity implements ViewPager.OnPageChangeListener {
 
     ArrayList<View> datas = new ArrayList<View>();
     private ViewPager viewPager;
     private LinearLayout linearLayout;
     private ImageView mvs[];
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,12 +34,12 @@ public class GuideActivity extends AppCompatActivity implements ViewPager.OnPage
     }
 
     private void initPoints() {
-        linearLayout= (LinearLayout) findViewById(R.id.points);
+        linearLayout = (LinearLayout) findViewById(R.id.points);
         int count = linearLayout.getChildCount();
-        mvs=new ImageView[count];
+        mvs = new ImageView[count];
         for (int i = 0; i < count; i++) {
             ImageView view = (ImageView) linearLayout.getChildAt(i);
-            mvs[i]=view;
+            mvs[i] = view;
         }
     }
 
@@ -52,15 +52,16 @@ public class GuideActivity extends AppCompatActivity implements ViewPager.OnPage
         b.setScaleType(ImageView.ScaleType.FIT_XY);
         b.setImageResource(R.drawable.image_page4);
 
-        View c=View.inflate(this, R.layout.lastimage, null);
+        View c = View.inflate(this, R.layout.lastimage, null);
 
         datas.add(a);
         datas.add(b);
         datas.add(c);
 
     }
-    public void jump(View v){
-        Intent it=new Intent(this,MainActivity.class);
+
+    public void jump(View v) {
+        Intent it = new Intent(this, MainActivity.class);
         startActivity(it);
         overridePendingTransition(R.anim.scale_in, R.anim.scala_out);
     }
@@ -100,9 +101,10 @@ public class GuideActivity extends AppCompatActivity implements ViewPager.OnPage
     }
 
     int current = 0;
+
     @Override
     public void onPageScrolled(int arg0, float arg1, int arg2) {
-        if (arg0 ==current) {
+        if (arg0 == current) {
             mvs[arg0].setImageResource(android.R.drawable.presence_online);
         } else {
             mvs[arg0].setImageResource(android.R.drawable.presence_online);
@@ -111,7 +113,7 @@ public class GuideActivity extends AppCompatActivity implements ViewPager.OnPage
             current = arg0;
         }
         //显示最后一页
-        if (arg0==datas.size()-1) {
+        if (arg0 == datas.size() - 1) {
             //引导完成
             SharedPreferences sp = getSharedPreferences("args", Context.MODE_PRIVATE);
             SharedPreferences.Editor ed = sp.edit();
