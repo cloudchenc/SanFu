@@ -1,4 +1,4 @@
-package fragment;
+package com.example.sanfuproject.activity.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -13,11 +13,11 @@ import com.example.sanfuproject.R;
  * Created by Hello on 2016/10/11.
  */
 
-public class AccountFrag extends Fragment {
+public class RightFrag extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_account, null);
+        View view = inflater.inflate(R.layout.fragment_right, null);
         return view;
     }
 }

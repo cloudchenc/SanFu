@@ -10,4 +10,8 @@ public class Constants {
 
     public static DrawerLayout drawerLayout;
 
+    //分类String数据
+    public static String classifyStr = "http://m.sanfu.com/app/goods/sort.htm?source=1&version=1";
+
+
 }
