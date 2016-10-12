@@ -44,17 +44,6 @@
     <option name="id" value="Android" />
   </component>
   <component name="SvnBranchConfigurationManager">
-    <option name="myConfigurationMap">
-      <map>
-        <entry key="$PROJECT_DIR$/app">
-          <value>
-            <SvnBranchConfiguration>
-              <option name="trunkUrl" value="https://lenovo-lover/svn/Sanfu/app" />
-            </SvnBranchConfiguration>
-          </value>
-        </entry>
-      </map>
-    </option>
     <option name="mySupportsUserInfoFilter" value="true" />
   </component>
   <component name="masterDetails">
