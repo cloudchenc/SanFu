@@ -1,4 +1,4 @@
-package fragment;
+package com.example.sanfuproject.activity.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
