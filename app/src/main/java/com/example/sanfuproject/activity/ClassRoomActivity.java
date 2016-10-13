@@ -7,6 +7,10 @@ import android.webkit.WebViewClient;
 
 import com.example.sanfuproject.R;
 
+/**
+ *
+ * 侧滑栏形象学堂WebView
+ */
 public class ClassRoomActivity extends AppCompatActivity {
 
     @Override

@@ -9,6 +9,10 @@ import com.example.sanfuproject.R;
 
 public class PlusActivity extends AppCompatActivity {
 
+    /**
+     * 时尚优选WebView
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

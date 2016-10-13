@@ -8,10 +8,14 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.example.sanfuproject.R;
 
+/**
+ *
+ * 闪屏页
+ * @param
+ */
 public class SplashActivity extends AppCompatActivity {
 
     Intent it = null;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

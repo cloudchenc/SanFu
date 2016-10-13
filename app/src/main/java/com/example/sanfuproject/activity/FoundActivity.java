@@ -7,6 +7,10 @@ import android.webkit.WebViewClient;
 
 import com.example.sanfuproject.R;
 
+/**
+ *
+ * 发现WebView
+ */
 public class FoundActivity extends AppCompatActivity {
 
     @Override
