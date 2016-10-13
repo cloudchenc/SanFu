@@ -21,11 +21,19 @@ public class LvAdapter extends BaseAdapter {
     private Context context;
     private LayoutInflater layoutInflater;
     private ArrayList<String> data;
+    private int mSelect = 0;
 
     public LvAdapter(Context context, ArrayList<String> data) {
         this.context = context;
         layoutInflater = layoutInflater.from(context);
         this.data = data;
+    }
+
+    public void changeSelected(int positon) { //刷新方法
+        if (positon != mSelect) {
+            mSelect = positon;
+            notifyDataSetChanged();
+        }
     }
 
     @Override
@@ -55,6 +63,11 @@ public class LvAdapter extends BaseAdapter {
             holder = (ViewHolder) convertView.getTag();
         }
         holder.textView.setText(data.get(position));
+        if (mSelect == position) {
+            convertView.setBackgroundColor(0xffffffff); //选中项背景
+        } else {
+            convertView.setBackgroundColor(0xffbfbfbf);  //其他项背景
+        }
         return convertView;
     }
 

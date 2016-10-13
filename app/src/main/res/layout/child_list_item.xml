@@ -28,9 +28,11 @@
             android:src="@drawable/abs__ic_more" />
     </RelativeLayout>
 
-    <GridView
+    <com.example.sanfuproject.activity.Custom.MyGridView
         android:id="@+id/gridView"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:numColumns="3"></GridView>
+        android:gravity="center"
+        android:numColumns="3"
+        android:stretchMode="columnWidth"></com.example.sanfuproject.activity.Custom.MyGridView>
 </LinearLayout>

@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 
 import com.example.sanfuproject.R;
+import com.example.sanfuproject.activity.Custom.MyListView;
 import com.example.sanfuproject.activity.adapters.ChildLvAdapter;
 import com.example.sanfuproject.activity.entity.Classify;
 import com.squareup.picasso.Picasso;
@@ -34,7 +35,7 @@ public class WomanFrag extends Fragment {
         View view = inflater.inflate(R.layout.childfrag_listview, null);
         ImageView imageView = new ImageView(getContext());
         Picasso.with(getContext()).load(category.get(1).getImg()).into(imageView);
-        ListView listView = (ListView) view.findViewById(R.id.child_listView);
+        MyListView listView = (MyListView) view.findViewById(R.id.child_listView);
         listView.addHeaderView(imageView);
         initData();
         ChildLvAdapter adapter = new ChildLvAdapter(getContext(), list2_name, list2Been);

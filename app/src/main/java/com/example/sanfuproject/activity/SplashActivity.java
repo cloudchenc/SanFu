@@ -11,10 +11,11 @@ import com.example.sanfuproject.activity.entity.Classify;
 import com.example.sanfuproject.activity.utils.JsonUtils;
 
 import static com.example.sanfuproject.activity.utils.Constants.category;
+import static com.example.sanfuproject.activity.utils.Constants.classifyStr;
 
 /**
- *
  * 闪屏页
+ *
  * @param
  */
 public class SplashActivity extends AppCompatActivity {
@@ -33,7 +34,7 @@ public class SplashActivity extends AppCompatActivity {
         new Thread() {
             @Override
             public void run() {
-                String classifyJson = JsonUtils.loadJson();
+                String classifyJson = JsonUtils.loadJson(classifyStr);
                 Classify classify = JsonUtils.parseJson(classifyJson);
                 category = classify.getMsg().getCategory();
             }

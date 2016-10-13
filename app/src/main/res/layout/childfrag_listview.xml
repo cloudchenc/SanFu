@@ -4,8 +4,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <ListView
+    <com.example.sanfuproject.activity.Custom.MyListView
         android:id="@+id/child_listView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"></ListView>
+        android:layout_height="wrap_content"></com.example.sanfuproject.activity.Custom.MyListView>
 </LinearLayout>

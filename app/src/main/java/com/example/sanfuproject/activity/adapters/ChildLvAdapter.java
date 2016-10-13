@@ -9,6 +9,7 @@ import android.widget.GridView;
 import android.widget.TextView;
 
 import com.example.sanfuproject.R;
+import com.example.sanfuproject.activity.Custom.MyGridView;
 import com.example.sanfuproject.activity.entity.Classify;
 
 import java.util.ArrayList;
@@ -60,7 +61,7 @@ public class ChildLvAdapter extends BaseAdapter {
             holder = new ViewHolder();
             convertView = layoutInflater.inflate(R.layout.child_list_item, null);
             holder.textView = (TextView) convertView.findViewById(list2);
-            holder.gridView = (GridView) convertView.findViewById(R.id.gridView);
+            holder.gridView = (MyGridView) convertView.findViewById(R.id.gridView);
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder) convertView.getTag();
@@ -78,7 +79,7 @@ public class ChildLvAdapter extends BaseAdapter {
         for (int j = 0; j < list2.size(); j++) {
             Map<String, String> map = new HashMap<String, String>();
             map.put("img", list2.get(j).getImg().toString());
-            map.put("name", list2.get(j).getName().toString());
+            map.put("name", list2.get(j).getName().toString().replace("���", "长"));
             if (!item_data.contains(map)) {
                 item_data.add(map);
             }
@@ -88,6 +89,6 @@ public class ChildLvAdapter extends BaseAdapter {
 
     class ViewHolder {
         TextView textView;
-        GridView gridView;
+        MyGridView gridView;
     }
 }

@@ -40,6 +40,7 @@ public class ClassifyFrag extends Fragment {
     private Handler handler = new Handler();
     private ArrayList<String> classList = new ArrayList<String>();
     private ArrayList<Fragment> vpList;
+    private LvAdapter adapter;
 
     @Nullable
     @Override
@@ -74,12 +75,14 @@ public class ClassifyFrag extends Fragment {
                     @Override
                     public void run() {
                         ListView listView = (ListView) view.findViewById(R.id.listView);
-                        LvAdapter adapter = new LvAdapter(getContext(), classList);
-                        listView.setAdapter(new ArrayAdapter<String>(getContext(), android.R.layout.simple_list_item_1, new String[]{"男装", "女装", "家居内衣", "化妆鞋包"}));
+                        adapter = new LvAdapter(getContext(), classList);
+                        listView.setAdapter(adapter);
+                        //listView.setAdapter(new ArrayAdapter<String>(getContext(), android.R.layout.simple_list_item_1, new String[]{"男装", "女装", "家居内衣", "化妆鞋包"}));
                         listView.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                             @Override
                             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                                //view.setBackgroundResource(R.color.class_choosed_bg);
+                                System.out.println("--i");
+                                adapter.changeSelected(position);//刷新
                             }
 
                             @Override
