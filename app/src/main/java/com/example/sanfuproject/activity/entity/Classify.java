@@ -1,13 +1,13 @@
 package com.example.sanfuproject.activity.entity;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * Created by Hello on 2016/10/12.
  */
 
-public class Classify {
-
+public class Classify implements Serializable{
 
     /**
      * success : true

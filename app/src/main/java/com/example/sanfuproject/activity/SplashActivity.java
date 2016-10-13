@@ -12,10 +12,14 @@ import com.example.sanfuproject.activity.utils.JsonUtils;
 
 import static com.example.sanfuproject.activity.utils.Constants.category;
 
+/**
+ *
+ * 闪屏页
+ * @param
+ */
 public class SplashActivity extends AppCompatActivity {
 
     Intent it = null;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

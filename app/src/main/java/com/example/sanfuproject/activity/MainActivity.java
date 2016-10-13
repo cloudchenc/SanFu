@@ -14,6 +14,7 @@ import com.example.sanfuproject.activity.fragment.AccountFrag;
 import com.example.sanfuproject.activity.fragment.CartFrag;
 import com.example.sanfuproject.activity.fragment.ClassifyFrag;
 import com.example.sanfuproject.activity.fragment.HomeFrag;
+import com.example.sanfuproject.activity.fragment.LeftFrag;
 import com.example.sanfuproject.activity.fragment.RightFrag;
 
 import static com.example.sanfuproject.activity.utils.Constants.drawerLayout;
@@ -33,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void initDrawerLayout() {
         drawerLayout = (DrawerLayout) findViewById(R.id.drawerlayout);
+        drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED, Gravity.LEFT);
         drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED, Gravity.RIGHT);
         drawerLayout.setDrawerListener(new DrawerLayout.DrawerListener() {
             @Override
@@ -47,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onDrawerClosed(View drawerView) {
+                drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED, Gravity.LEFT);
                 drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED, Gravity.RIGHT);
             }
 
@@ -55,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+        getSupportFragmentManager().beginTransaction().add(R.id.left_frame, new LeftFrag()).commit();
         getSupportFragmentManager().beginTransaction().add(R.id.right_frame, new RightFrag()).commit();
     }
 

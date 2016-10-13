@@ -10,9 +10,9 @@ import android.widget.TextView;
 import com.example.sanfuproject.R;
 
 import java.util.ArrayList;
-import java.util.zip.Inflater;
 
 /**
+ * 分类页，左侧listView适配器
  * Created by Hello on 2016/10/12.
  */
 

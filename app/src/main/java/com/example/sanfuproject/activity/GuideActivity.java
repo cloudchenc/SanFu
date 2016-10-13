@@ -16,7 +16,9 @@ import com.example.sanfuproject.R;
 
 import java.util.ArrayList;
 
-
+/**
+ * 引导页
+ */
 public class GuideActivity extends AppCompatActivity implements ViewPager.OnPageChangeListener {
 
     ArrayList<View> datas = new ArrayList<View>();
