@@ -7,6 +7,10 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
 import com.example.sanfuproject.R;
+import com.example.sanfuproject.activity.entity.Classify;
+import com.example.sanfuproject.activity.utils.JsonUtils;
+
+import static com.example.sanfuproject.activity.utils.Constants.category;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -18,6 +22,18 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
         init();
+        initData();
+    }
+
+    private void initData() {
+        new Thread() {
+            @Override
+            public void run() {
+                String classifyJson = JsonUtils.loadJson();
+                Classify classify = JsonUtils.parseJson(classifyJson);
+                category = classify.getMsg().getCategory();
+            }
+        }.start();
     }
 
     private void init() {

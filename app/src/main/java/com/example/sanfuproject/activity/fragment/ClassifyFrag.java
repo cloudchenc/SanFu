@@ -28,6 +28,7 @@ import com.example.sanfuproject.activity.utils.JsonUtils;
 import java.util.ArrayList;
 import java.util.List;
 
+import static android.R.id.list;
 import static com.example.sanfuproject.activity.utils.Constants.category;
 import static com.example.sanfuproject.activity.utils.Constants.classifyStr;
 import static com.example.sanfuproject.activity.utils.Constants.drawerLayout;
@@ -43,6 +44,8 @@ public class ClassifyFrag extends Fragment {
     private Handler handler = new Handler();
     private ArrayList<String> classList = new ArrayList<String>();
     private ArrayList<Fragment> vpList;
+    private ViewPager viewPager;
+    private ListView listView;
 
     @Nullable
     @Override
@@ -66,9 +69,7 @@ public class ClassifyFrag extends Fragment {
         new Thread() {
             @Override
             public void run() {
-                String classifyJson = JsonUtils.loadJson();
-                Classify classify = JsonUtils.parseJson(classifyJson);
-                category = classify.getMsg().getCategory();
+
                 for (int i = 0; i < category.size(); i++) {
                     classList.add(category.get(i).getName().replace(" ", ""));
                     System.out.println("--" + classList.toString());
@@ -76,13 +77,15 @@ public class ClassifyFrag extends Fragment {
                 handler.post(new Runnable() {
                     @Override
                     public void run() {
-                        ListView listView = (ListView) view.findViewById(R.id.listView);
+                        listView = (ListView) view.findViewById(R.id.listView);
                         LvAdapter adapter = new LvAdapter(getContext(), classList);
-                        listView.setAdapter(new ArrayAdapter<String>(getContext(), android.R.layout.simple_list_item_1, new String[]{"男装", "女装", "家居内衣", "化妆鞋包"}));
+                        listView.setAdapter(adapter);
+                        //listView.setAdapter(new ArrayAdapter<String>(getContext(), android.R.layout.simple_list_item_1, new String[]{"男装", "女装", "家居内衣", "化妆鞋包"}));
                         listView.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                             @Override
                             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                                //view.setBackgroundResource(R.color.class_choosed_bg);
+                                System.out.println("---select");
+                                change(position);
                             }
 
                             @Override
@@ -90,34 +93,38 @@ public class ClassifyFrag extends Fragment {
 
                             }
                         });
-                        ViewPager viewPager = (ViewPager) view.findViewById(R.id.viewpager);
+                        viewPager = (ViewPager) view.findViewById(R.id.viewpager);
                         vpList = new ArrayList<Fragment>();
                         for (int i = 0; i < 4; i++) {
                             vpList.add(FragmentFactory.createFragment(i));
                         }
-                        viewPager.setAdapter(new A(getChildFragmentManager()));
+                        viewPager.setAdapter(new VpAdapter(getChildFragmentManager(), vpList));
+                        viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+                            @Override
+                            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+                            }
+
+                            @Override
+                            public void onPageSelected(int position) {
+                                change(position);
+                            }
+
+                            @Override
+                            public void onPageScrollStateChanged(int state) {
+
+                            }
+                        });
                     }
                 });
             }
         }.start();
     }
 
-    //适配器
-    class A extends FragmentPagerAdapter {
-
-        public A(FragmentManager fm) {
-            super(fm);
-        }
-
-        @Override
-        public Fragment getItem(int position) {
-            return vpList.get(position);
-        }
-
-        @Override
-        public int getCount() {
-            return vpList.size();
-        }
+    private void change(int position) {
+        System.out.println("--111");
+        listView.setSelection(position);
+        viewPager.setCurrentItem(position);
     }
 
     //按钮的点击事件必须用private进行修饰(使用失败)
