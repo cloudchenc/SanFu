@@ -4,6 +4,9 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -16,12 +19,16 @@ import android.widget.ListView;
 
 import com.example.sanfuproject.R;
 import com.example.sanfuproject.activity.adapters.LvAdapter;
+import com.example.sanfuproject.activity.adapters.VpAdapter;
 import com.example.sanfuproject.activity.entity.Classify;
+import com.example.sanfuproject.activity.utils.Constants;
+import com.example.sanfuproject.activity.utils.FragmentFactory;
 import com.example.sanfuproject.activity.utils.JsonUtils;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.example.sanfuproject.activity.utils.Constants.category;
 import static com.example.sanfuproject.activity.utils.Constants.classifyStr;
 import static com.example.sanfuproject.activity.utils.Constants.drawerLayout;
 
@@ -35,6 +42,7 @@ public class ClassifyFrag extends Fragment {
     private View view;
     private Handler handler = new Handler();
     private ArrayList<String> classList = new ArrayList<String>();
+    private ArrayList<Fragment> vpList;
 
     @Nullable
     @Override
@@ -60,7 +68,7 @@ public class ClassifyFrag extends Fragment {
             public void run() {
                 String classifyJson = JsonUtils.loadJson();
                 Classify classify = JsonUtils.parseJson(classifyJson);
-                List<Classify.MsgBean.CategoryBean> category = classify.getMsg().getCategory();
+                category = classify.getMsg().getCategory();
                 for (int i = 0; i < category.size(); i++) {
                     classList.add(category.get(i).getName().replace(" ", ""));
                     System.out.println("--" + classList.toString());
@@ -82,10 +90,34 @@ public class ClassifyFrag extends Fragment {
 
                             }
                         });
+                        ViewPager viewPager = (ViewPager) view.findViewById(R.id.viewpager);
+                        vpList = new ArrayList<Fragment>();
+                        for (int i = 0; i < 4; i++) {
+                            vpList.add(FragmentFactory.createFragment(i));
+                        }
+                        viewPager.setAdapter(new A(getChildFragmentManager()));
                     }
                 });
             }
         }.start();
+    }
+
+    //适配器
+    class A extends FragmentPagerAdapter {
+
+        public A(FragmentManager fm) {
+            super(fm);
+        }
+
+        @Override
+        public Fragment getItem(int position) {
+            return vpList.get(position);
+        }
+
+        @Override
+        public int getCount() {
+            return vpList.size();
+        }
     }
 
     //按钮的点击事件必须用private进行修饰(使用失败)

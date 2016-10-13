@@ -35,4 +35,5 @@ dependencies {
     compile(name: 'xutils', ext: 'aar')
     compile files('libs/SlidingMenu.jar')
     compile files('libs/fastjson-1.2.17.jar')
+    compile files('libs/picasso-2.5.2.jar')
 }
