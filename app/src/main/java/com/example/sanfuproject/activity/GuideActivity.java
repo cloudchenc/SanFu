@@ -59,7 +59,6 @@ public class GuideActivity extends AppCompatActivity implements ViewPager.OnPage
         datas.add(a);
         datas.add(b);
         datas.add(c);
-
     }
 
     public void jump(View v) {
@@ -71,10 +70,10 @@ public class GuideActivity extends AppCompatActivity implements ViewPager.OnPage
     private void initView() {
         viewPager = (ViewPager) findViewById(R.id.first_vp);
         viewPager.setOnPageChangeListener(this);
-        viewPager.setAdapter(new A());
+        viewPager.setAdapter(new MyPagerAdapter());
     }
 
-    class A extends PagerAdapter {
+    class MyPagerAdapter extends PagerAdapter {
 
         @Override
         public void destroyItem(ViewGroup container, int position, Object object) {

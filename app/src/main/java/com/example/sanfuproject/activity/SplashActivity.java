@@ -42,7 +42,6 @@ public class SplashActivity extends AppCompatActivity {
     }
 
     private void init() {
-
         SharedPreferences sp = getSharedPreferences("args", Context.MODE_PRIVATE);
         boolean isGuid = sp.getBoolean("isGuid", false);
         //已经引导过
@@ -51,7 +50,6 @@ public class SplashActivity extends AppCompatActivity {
         } else {
             it = new Intent(this, GuideActivity.class);
         }
-
         new Thread() {
             public void run() {
                 try {
@@ -61,7 +59,6 @@ public class SplashActivity extends AppCompatActivity {
                 }
             }
         }.start();
-
     }
 }
 
