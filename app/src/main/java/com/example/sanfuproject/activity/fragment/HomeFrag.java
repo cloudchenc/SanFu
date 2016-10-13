@@ -15,13 +15,19 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListView;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.example.sanfuproject.R;
 import com.example.sanfuproject.activity.ClassRoomActivity;
 import com.example.sanfuproject.activity.FoundActivity;
 import com.example.sanfuproject.activity.PlusActivity;
+import com.example.sanfuproject.activity.utils.Constants;
+import com.example.sanfuproject.activity.utils.JsonUtils;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 import static com.example.sanfuproject.activity.utils.Constants.drawerLayout;
 
@@ -38,7 +44,32 @@ public class HomeFrag extends Fragment {
 
         view = inflater.inflate(R.layout.fragment_home, null);
         initView();
+        initData();
         return view;
+    }
+
+    private void initData() {
+        ExecutorService es = Executors.newFixedThreadPool(5);
+        //开启线程
+        es.execute(new Runnable() {
+            @Override
+            public void run() {
+                String path = Constants.discount;
+                String json = JsonUtils.loadJson(path);
+                parseJSON(json);
+            }
+        });
+
+        //停止线程
+    }
+
+    private void parseJSON(String json) {
+        //将普通string转化为json
+        JSONObject a = JSON.parseObject(json);
+        String root = a.getString("data");
+        JSONObject b = JSON.parseObject(root);
+        //获取所有值
+
     }
 
     private void initView() {
@@ -96,7 +127,7 @@ public class HomeFrag extends Fragment {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-    //               Toast.makeText(getActivity().getBaseContext(), ""+position, Toast.LENGTH_SHORT).show();
+                    //               Toast.makeText(getActivity().getBaseContext(), ""+position, Toast.LENGTH_SHORT).show();
                     Intent it = null;
                     switch (position) {
                         case 0:
@@ -124,5 +155,6 @@ public class HomeFrag extends Fragment {
                 }
             });
         }
+
     }
 }

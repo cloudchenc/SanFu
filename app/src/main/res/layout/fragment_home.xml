@@ -30,14 +30,14 @@
                 android:background="@drawable/search_shape"
                 android:drawableLeft="@drawable/abs__ic_search"
                 android:text="搜索"
-                android:textColor="#c0c0c0"/>
+                android:textColor="#c0c0c0" />
 
             <ImageView
-                android:layout_marginLeft="21dp"
                 android:layout_width="35dp"
                 android:layout_height="35dp"
-                android:scaleType="fitXY"
                 android:layout_gravity="center"
+                android:layout_marginLeft="21dp"
+                android:scaleType="fitXY"
                 android:src="@drawable/home_page_logo" />
         </LinearLayout>
 
@@ -52,10 +52,83 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-
             <ImageView
+                android:id="@+id/image1"
+                android:layout_width="match_parent"
+                android:layout_height="190dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:weightSum="4">
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="1" />
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1" />
+            </LinearLayout>
+
+            <GridView
+                android:layout_width="match_parent"
+                android:layout_height="190dp"
+                android:numColumns="4">
+
+            </GridView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="130dp"
+                android:orientation="horizontal">
+
+               <FrameLayout
+                   android:layout_width="0dp"
+                   android:layout_weight="1"
+                   android:layout_height="match_parent">
+
+               </FrameLayout>
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+
+            </LinearLayout>
+
+            <GridView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:numColumns="3">
+
+            </GridView>
+
+           <ImageView
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content" />
+
+            <ImageButton
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
+
+           <ImageView
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content" />
 
         </LinearLayout>
     </ScrollView>

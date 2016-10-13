@@ -11,6 +11,8 @@
         android:id="@+id/menu_listView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:listSelector="#6f00"
+        android:background="#acdbce"
         android:gravity="center">
 
     </ListView>

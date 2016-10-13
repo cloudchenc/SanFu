@@ -3,15 +3,9 @@ package com.example.sanfuproject.activity.utils;
 import com.alibaba.fastjson.JSON;
 import com.example.sanfuproject.activity.entity.Classify;
 
-import org.xutils.common.Callback;
-import org.xutils.http.RequestParams;
-import org.xutils.x;
-
 import java.io.InputStream;
 import java.net.URL;
 import java.net.URLConnection;
-
-import static com.example.sanfuproject.activity.utils.Constants.classifyStr;
 
 /**
  * Created by Hello on 2016/10/12.
@@ -21,9 +15,9 @@ public class JsonUtils {
     /**
      * 获得到json字符串
      */
-    public static String loadJson() {
+    public static String loadJson(String path) {
         try {
-            URL url = new URL(classifyStr);
+            URL url = new URL(path);
             URLConnection connection = url.openConnection();
             connection.setConnectTimeout(5000);
             InputStream is = connection.getInputStream();
