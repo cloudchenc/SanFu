@@ -7,10 +7,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.ListView;
 
 import com.example.sanfuproject.R;
-import com.example.sanfuproject.activity.Custom.MyListView;
+import com.example.sanfuproject.activity.view.MyListView;
 import com.example.sanfuproject.activity.adapters.ChildLvAdapter;
 import com.example.sanfuproject.activity.entity.Classify;
 import com.squareup.picasso.Picasso;

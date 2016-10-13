@@ -5,11 +5,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.GridView;
 import android.widget.TextView;
 
 import com.example.sanfuproject.R;
-import com.example.sanfuproject.activity.Custom.MyGridView;
+import com.example.sanfuproject.activity.view.MyGridView;
 import com.example.sanfuproject.activity.entity.Classify;
 
 import java.util.ArrayList;
@@ -17,7 +16,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static android.R.attr.data;
 import static com.example.sanfuproject.R.id.list2;
 
 /**

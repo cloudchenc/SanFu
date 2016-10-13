@@ -1,6 +1,5 @@
 package com.example.sanfuproject.activity.fragment.childfrag;
 
-import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -8,10 +7,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.ListView;
 
 import com.example.sanfuproject.R;
-import com.example.sanfuproject.activity.Custom.MyListView;
+import com.example.sanfuproject.activity.view.MyListView;
 import com.example.sanfuproject.activity.adapters.ChildLvAdapter;
 import com.example.sanfuproject.activity.entity.Classify;
 import com.squareup.picasso.Picasso;
@@ -19,8 +17,6 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 import java.util.List;
 
-import static android.R.attr.bitmap;
-import static android.icu.lang.UCharacter.GraphemeClusterBreak.V;
 import static com.example.sanfuproject.activity.utils.Constants.category;
 
 /**

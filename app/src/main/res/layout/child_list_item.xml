@@ -28,11 +28,18 @@
             android:src="@drawable/abs__ic_more" />
     </RelativeLayout>
 
-    <com.example.sanfuproject.activity.Custom.MyGridView
+    <com.example.sanfuproject.activity.view.MyGridView
         android:id="@+id/gridView"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:gravity="center"
+        android:horizontalSpacing="10dp"
+        android:listSelector="#00000000"
         android:numColumns="3"
-        android:stretchMode="columnWidth"></com.example.sanfuproject.activity.Custom.MyGridView>
+        android:scrollbars="none"
+        android:stretchMode="columnWidth"
+        android:verticalSpacing="10dp"></com.example.sanfuproject.activity.view.MyGridView>
 </LinearLayout>

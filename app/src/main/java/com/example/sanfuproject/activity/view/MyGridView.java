@@ -1,4 +1,4 @@
-package com.example.sanfuproject.activity.Custom;
+package com.example.sanfuproject.activity.view;
 
 import android.content.Context;
 import android.util.AttributeSet;
