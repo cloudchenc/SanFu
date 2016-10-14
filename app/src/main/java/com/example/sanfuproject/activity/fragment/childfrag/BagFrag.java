@@ -3,10 +3,12 @@ package com.example.sanfuproject.activity.fragment.childfrag;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.sanfuproject.R;
 import com.example.sanfuproject.activity.view.MyListView;
@@ -34,8 +36,14 @@ public class BagFrag extends Fragment {
         View view = inflater.inflate(R.layout.childfrag_listview, null);
         ImageView imageView = new ImageView(getContext());
         Picasso.with(getContext()).load(category.get(3).getImg()).into(imageView);
+        TextView textView = new TextView(getContext());
+        textView.setText("已经到底啦");
+        textView.setTextSize(16);
+        textView.setHeight(150);
+        textView.setGravity(Gravity.CENTER);
         MyListView listView = (MyListView) view.findViewById(R.id.child_listView);
         listView.addHeaderView(imageView);
+        listView.addFooterView(textView);
         initData();
         ChildLvAdapter adapter = new ChildLvAdapter(getContext(), list2_name, list2Been);
         listView.setAdapter(adapter);

@@ -59,7 +59,11 @@ public class GridAdapter extends BaseAdapter {
         }
         holder.textView.setText(data.get(position).get("name"));
         String url = data.get(position).get("img");
-        Picasso.with(context).load(url).into(holder.imageView);
+        if (!"".equals(url)) {
+            Picasso.with(context).load(url).into(holder.imageView);
+        } else {
+            Picasso.with(context).load(R.drawable.error).resize(310, 380).into(holder.imageView);
+        }
         return convertView;
     }
 

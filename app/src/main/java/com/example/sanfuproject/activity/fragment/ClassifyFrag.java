@@ -19,6 +19,7 @@ import android.widget.ListView;
 
 import com.example.sanfuproject.R;
 import com.example.sanfuproject.activity.adapters.LvAdapter;
+import com.example.sanfuproject.activity.adapters.VpAdapter;
 import com.example.sanfuproject.activity.entity.Classify;
 import com.example.sanfuproject.activity.utils.FragmentFactory;
 import com.example.sanfuproject.activity.utils.JsonUtils;
@@ -61,63 +62,36 @@ public class ClassifyFrag extends Fragment {
             }
         });
 
-        new Thread() {
+        for (int i = 0; i < category.size(); i++) {
+            classList.add(category.get(i).getName().replace(" ", ""));
+            System.out.println("--" + classList.toString());
+        }
+        handler.post(new Runnable() {
             @Override
             public void run() {
-                String classifyJson = JsonUtils.loadJson(classifyStr);
-                Classify classify = JsonUtils.parseJson(classifyJson);
-                category = classify.getMsg().getCategory();
-                for (int i = 0; i < category.size(); i++) {
-                    classList.add(category.get(i).getName().replace(" ", ""));
-                    System.out.println("--" + classList.toString());
-                }
-                handler.post(new Runnable() {
+                ListView listView = (ListView) view.findViewById(R.id.listView);
+                adapter = new LvAdapter(getContext(), classList);
+                listView.setAdapter(adapter);
+                listView.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                     @Override
-                    public void run() {
-                        ListView listView = (ListView) view.findViewById(R.id.listView);
-                        adapter = new LvAdapter(getContext(), classList);
-                        listView.setAdapter(adapter);
-                        //listView.setAdapter(new ArrayAdapter<String>(getContext(), android.R.layout.simple_list_item_1, new String[]{"男装", "女装", "家居内衣", "化妆鞋包"}));
-                        listView.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                            @Override
-                            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                                System.out.println("--i");
-                                adapter.changeSelected(position);//刷新
-                            }
+                    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                        System.out.println("--i");
+                        adapter.changeSelected(position);//刷新
+                    }
 
-                            @Override
-                            public void onNothingSelected(AdapterView<?> parent) {
+                    @Override
+                    public void onNothingSelected(AdapterView<?> parent) {
 
-                            }
-                        });
-                        ViewPager viewPager = (ViewPager) view.findViewById(R.id.viewpager);
-                        vpList = new ArrayList<Fragment>();
-                        for (int i = 0; i < 4; i++) {
-                            vpList.add(FragmentFactory.createFragment(i));
-                        }
-                        viewPager.setAdapter(new A(getChildFragmentManager()));
                     }
                 });
+                ViewPager viewPager = (ViewPager) view.findViewById(R.id.viewpager);
+                vpList = new ArrayList<Fragment>();
+                for (int i = 0; i < 4; i++) {
+                    vpList.add(FragmentFactory.createFragment(i));
+                }
+                viewPager.setAdapter(new VpAdapter(getChildFragmentManager(), vpList));
             }
-        }.start();
-    }
-
-    //适配器
-    class A extends FragmentPagerAdapter {
-
-        public A(FragmentManager fm) {
-            super(fm);
-        }
-
-        @Override
-        public Fragment getItem(int position) {
-            return vpList.get(position);
-        }
-
-        @Override
-        public int getCount() {
-            return vpList.size();
-        }
+        });
     }
 
     //按钮的点击事件必须用private进行修饰(使用失败)
