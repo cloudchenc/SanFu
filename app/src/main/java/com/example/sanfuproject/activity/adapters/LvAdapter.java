@@ -1,6 +1,7 @@
 package com.example.sanfuproject.activity.adapters;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,10 +31,7 @@ public class LvAdapter extends BaseAdapter {
     }
 
     public void changeSelected(int positon) { //刷新方法
-        if (positon != mSelect) {
-            mSelect = positon;
-            notifyDataSetChanged();
-        }
+        this.mSelect = positon;
     }
 
     @Override
@@ -64,9 +62,11 @@ public class LvAdapter extends BaseAdapter {
         }
         holder.textView.setText(data.get(position));
         if (mSelect == position) {
-            convertView.setBackgroundColor(0xffffffff); //选中项背景
+            convertView.setBackgroundColor(Color.WHITE); //选中项背景
+            holder.textView.setTextColor(Color.RED);
         } else {
-            convertView.setBackgroundColor(0xffbfbfbf);  //其他项背景
+            convertView.setBackgroundColor(Color.rgb(229, 229, 229));  //其他项背景
+            holder.textView.setTextColor(Color.BLACK);
         }
         return convertView;
     }

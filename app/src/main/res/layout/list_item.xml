@@ -8,7 +8,6 @@
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:duplicateParentState="true"
         android:gravity="center"
         android:padding="10dp"
         android:text="TextView"

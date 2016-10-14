@@ -25,7 +25,8 @@
         <activity android:name=".activity.GuideActivity" />
         <activity android:name=".activity.FoundActivity" />
         <activity android:name=".activity.ClassRoomActivity" />
-        <activity android:name=".activity.PlusActivity"></activity>
+        <activity android:name=".activity.PlusActivity" />
+        <activity android:name=".activity.SearchActivity"></activity>
     </application>
 
 </manifest>

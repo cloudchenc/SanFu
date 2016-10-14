@@ -42,6 +42,7 @@ public class ClassifyFrag extends Fragment {
     private ArrayList<String> classList = new ArrayList<String>();
     private ArrayList<Fragment> vpList;
     private LvAdapter adapter;
+    private ViewPager viewPager;
 
     @Nullable
     @Override
@@ -72,26 +73,44 @@ public class ClassifyFrag extends Fragment {
                 ListView listView = (ListView) view.findViewById(R.id.listView);
                 adapter = new LvAdapter(getContext(), classList);
                 listView.setAdapter(adapter);
-                listView.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
-                    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                        System.out.println("--i");
-                        adapter.changeSelected(position);//刷新
-                    }
-
-                    @Override
-                    public void onNothingSelected(AdapterView<?> parent) {
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                        System.out.println("--item");
+                        change(position);
 
                     }
                 });
-                ViewPager viewPager = (ViewPager) view.findViewById(R.id.viewpager);
+                viewPager = (ViewPager) view.findViewById(R.id.viewpager);
                 vpList = new ArrayList<Fragment>();
                 for (int i = 0; i < 4; i++) {
                     vpList.add(FragmentFactory.createFragment(i));
                 }
                 viewPager.setAdapter(new VpAdapter(getChildFragmentManager(), vpList));
+                viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+                    @Override
+                    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+                    }
+
+                    @Override
+                    public void onPageSelected(int position) {
+                        change(position);
+                    }
+
+                    @Override
+                    public void onPageScrollStateChanged(int state) {
+
+                    }
+                });
             }
         });
+    }
+
+    private void change(int position) {
+        adapter.changeSelected(position);
+        adapter.notifyDataSetInvalidated();
+        viewPager.setCurrentItem(position);
     }
 
     //按钮的点击事件必须用private进行修饰(使用失败)

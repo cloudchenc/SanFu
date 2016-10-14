@@ -31,18 +31,30 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
+
         <ListView
             android:id="@+id/listView"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:background="#66bfbfbf"
             android:divider="#00000000"
             android:dividerHeight="0dp"></ListView>
+
+        <View
+            android:layout_width="5dp"
+            android:layout_height="match_parent"
+            android:background="@android:color/white"></View>
 
         <android.support.v4.view.ViewPager
             android:id="@+id/viewpager"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="3"></android.support.v4.view.ViewPager>
+
+        <View
+            android:layout_width="5dp"
+            android:layout_height="match_parent"
+            android:background="@android:color/white"></View>
     </LinearLayout>
 </LinearLayout>
