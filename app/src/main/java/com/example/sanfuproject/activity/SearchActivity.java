@@ -13,6 +13,7 @@ import com.alibaba.fastjson.JSON;
 import com.example.sanfuproject.R;
 import com.example.sanfuproject.activity.adapters.FreshGridAdapter;
 import com.example.sanfuproject.activity.entity.Search;
+import com.example.sanfuproject.activity.utils.GetDataTask;
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshGridView;
 
@@ -35,6 +36,7 @@ public class SearchActivity extends AppCompatActivity {
     private String searchJson;
     private LinkedList<Map<String, Object>> data = new LinkedList<Map<String, Object>>();
     private FreshGridAdapter adapter;
+    private PullToRefreshGridView mPullRefreshGridView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,7 +98,7 @@ public class SearchActivity extends AppCompatActivity {
         editText.setText(keyword);
 
         //初始化gridview，添加适配器加载数据
-        PullToRefreshGridView mPullRefreshGridView = (PullToRefreshGridView) findViewById(R.id.goods_list_gridview);
+        mPullRefreshGridView = (PullToRefreshGridView) findViewById(R.id.goods_list_gridview);
         //设置空视图
         View view = findViewById(R.id.goods_list_linearlayout_no_data);
         mPullRefreshGridView.setEmptyView(view);
@@ -105,13 +107,13 @@ public class SearchActivity extends AppCompatActivity {
             @Override
             public void onPullDownToRefresh(PullToRefreshBase<GridView> refreshView) {
                 Toast.makeText(getApplicationContext(), "下拉", Toast.LENGTH_SHORT).show();
-
+//                new GetDataTask(mPullRefreshGridView, adapter, data).execute();
             }
 
             @Override
             public void onPullUpToRefresh(PullToRefreshBase<GridView> refreshView) {
                 Toast.makeText(getApplicationContext(), "上拉", Toast.LENGTH_SHORT).show();
-
+//                new GetDataTask(mPullRefreshGridView, adapter, data).execute();
             }
         });
         GridView mGridView = mPullRefreshGridView.getRefreshableView();
