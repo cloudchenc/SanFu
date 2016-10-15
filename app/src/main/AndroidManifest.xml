@@ -26,7 +26,8 @@
         <activity android:name=".activity.FoundActivity" />
         <activity android:name=".activity.ClassRoomActivity" />
         <activity android:name=".activity.PlusActivity" />
-        <activity android:name=".activity.SearchActivity"></activity>
+        <activity android:name=".activity.SearchActivity" />
+        <activity android:name=".activity.LoginActivity"></activity>
     </application>
 
 </manifest>

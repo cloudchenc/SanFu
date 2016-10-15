@@ -1,50 +1,123 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#BFBFBF"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@android:color/white"
     android:orientation="vertical">
 
-    <android.support.v7.widget.Toolbar
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="52.0dip"
+        android:background="#fff2f2f2"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingBottom="8.0dip"
+        android:paddingTop="8.0dip">
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:id="@+id/search_back"
+            android:layout_width="0.0dip"
+            android:layout_height="52.0dip"
+            android:layout_weight="1.0"
+            android:gravity="center"
             android:src="@drawable/abs__ic_back" />
 
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:drawableLeft="@drawable/abs__ic_search"
-            android:hint="搜索商品名/货号/种类" />
+        <LinearLayout
+            android:layout_width="0.0dip"
+            android:layout_height="35.0dip"
+            android:layout_weight="4.0"
+            android:background="@drawable/new_searcedt"
+            android:gravity="center"
+            android:orientation="horizontal">
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            <ImageView
+                android:id="@+id/search_search"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_marginLeft="8.0dip"
+                android:gravity="center"
+                android:src="@drawable/abs__ic_search" />
+
+            <EditText
+                android:id="@+id/search_edit"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8.0dip"
+                android:layout_marginRight="5.0dip"
+                android:background="@drawable/transparent_edittext_bg"
+                android:hint="搜索商品名/货号/种类"
+                android:imeOptions="actionSearch"
+                android:maxLength="50"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:textColor="@android:color/black"
+                android:textColorHint="@android:color/darker_gray" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/search_scan"
+            android:layout_width="0.0dip"
+            android:layout_height="35.0dip"
+            android:layout_weight="1.0"
+            android:background="@drawable/new_search"
+            android:clickable="true"
+            android:gravity="center"
             android:text="搜索" />
 
-    </android.support.v7.widget.Toolbar>
+        <TextView
+            android:layout_width="0.0dip"
+            android:layout_height="52.0dip"
+            android:layout_weight="1.0"
+            android:gravity="center" />
+    </LinearLayout>
 
-    <TextView
-        android:layout_width="match_parent"
+    <LinearLayout
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:background="#FFFFFF"
-        android:text="搜索历史:" />
+        android:background="@android:color/white"
+        android:orientation="vertical">
 
-    <GridView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#FFFFFF"
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10.0dip"
+            android:text="搜索历史:"
+            android:textSize="16.0sp"
+            android:textStyle="bold" />
+
+        <GridView
+            android:id="@+id/search_gridview"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10.0dip"
+            android:background="@android:color/white"
+            android:cacheColorHint="#00000000"
+            android:gravity="center"
+            android:horizontalSpacing="10.0dip"
+            android:listSelector="#00000000"
+            android:numColumns="3"
+            android:verticalSpacing="10.0dip" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1.0dip"
+        android:background="#66BFBFBF" />
+
+    <LinearLayout
+        android:id="@+id/search_linearlayouy_del"
+        android:layout_width="fill_parent"
+        android:layout_height="60.0dip"
         android:gravity="center"
-        android:numColumns="3"></GridView>
+        android:orientation="horizontal">
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#FFFFFF"
-        android:gravity="center"
-        android:text="清空历史搜索" />
-
+        <TextView
+            android:id="@+id/search_del"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:text="清空历史搜索" />
+    </LinearLayout>
 </LinearLayout>
