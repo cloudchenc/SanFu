@@ -45,7 +45,8 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:scrollbars="none">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -55,81 +56,182 @@
             <ImageView
                 android:id="@+id/image1"
                 android:layout_width="match_parent"
-                android:layout_height="190dp" />
+                android:layout_height="wrap_content" />
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="70dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="7dp"
+                android:layout_marginTop="7dp"
                 android:weightSum="4">
 
                 <ImageView
+                    android:id="@+id/image2_1"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginLeft="7dp"
                     android:layout_weight="1" />
 
                 <ImageView
+                    android:id="@+id/image2_2"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="4dp"
                     android:layout_weight="1" />
 
                 <ImageView
+                    android:id="@+id/image2_3"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="4dp"
                     android:layout_weight="1" />
 
                 <ImageView
+                    android:id="@+id/image2_4"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginRight="7dp"
                     android:layout_weight="1" />
             </LinearLayout>
 
-            <GridView
+            <com.example.sanfuproject.activity.view.MyGridView
+                android:id="@+id/gridView1"
                 android:layout_width="match_parent"
-                android:layout_height="190dp"
-                android:numColumns="4">
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="3dp"
+                android:numColumns="4"
+                android:scrollbars="none">
 
-            </GridView>
+            </com.example.sanfuproject.activity.view.MyGridView>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="130dp"
-                android:orientation="horizontal">
+                android:layout_height="wrap_content">
 
-               <FrameLayout
-                   android:layout_width="0dp"
-                   android:layout_weight="1"
-                   android:layout_height="match_parent">
+                <FrameLayout
+                    android:id="@+id/framelayout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
 
-               </FrameLayout>
+                    <ImageView
+                        android:id="@+id/image5_0"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </FrameLayout>
 
-                <ImageView
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1" />
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/image5_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <ImageView
+                        android:id="@+id/image5_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
 
             </LinearLayout>
 
-            <GridView
+            <com.example.sanfuproject.activity.view.MyGridView
+                android:id="@+id/gridView2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:numColumns="3">
+                android:layout_marginTop="2dp"
+                android:numColumns="3"
+                android:scrollbars="none">
 
-            </GridView>
+            </com.example.sanfuproject.activity.view.MyGridView>
 
-           <ImageView
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content" />
-
-            <ImageButton
+            <ImageView
+                android:id="@+id/image6"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp" />
 
-           <ImageView
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content" />
+            <ImageView
+                android:id="@+id/image7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp" />
 
+            <ImageView
+                android:id="@+id/image8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp" />
+
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:weightSum="2">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/image9_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <ImageView
+                        android:id="@+id/image9_2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/image9_3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <ImageView
+                        android:id="@+id/image9_4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp">
+
+                <ImageView
+                    android:id="@+id/image10_1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <ImageView
+                    android:id="@+id/image10_2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+            </LinearLayout>
         </LinearLayout>
     </ScrollView>
 

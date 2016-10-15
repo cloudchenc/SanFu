@@ -4,8 +4,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.view.Gravity;
@@ -13,21 +11,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 
 import com.example.sanfuproject.R;
 import com.example.sanfuproject.activity.adapters.LvAdapter;
 import com.example.sanfuproject.activity.adapters.VpAdapter;
-import com.example.sanfuproject.activity.entity.Classify;
 import com.example.sanfuproject.activity.utils.FragmentFactory;
-import com.example.sanfuproject.activity.utils.JsonUtils;
 
 import java.util.ArrayList;
 
 import static com.example.sanfuproject.activity.utils.Constants.category;
-import static com.example.sanfuproject.activity.utils.Constants.classifyStr;
 import static com.example.sanfuproject.activity.utils.Constants.drawerLayout;
 
 /**
@@ -63,10 +57,11 @@ public class ClassifyFrag extends Fragment {
             }
         });
 
-        for (int i = 0; i < category.size(); i++) {
-            classList.add(category.get(i).getName().replace(" ", ""));
-            System.out.println("--" + classList.toString());
-        }
+            for (int i = 0; i < category.size(); i++) {
+                classList.add(category.get(i).getName().replace(" ", ""));
+                System.out.println("--" + classList.toString());
+            }
+
         handler.post(new Runnable() {
             @Override
             public void run() {
@@ -76,7 +71,7 @@ public class ClassifyFrag extends Fragment {
                 listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                        System.out.println("--item");
+//                        System.out.println("--item");
                         change(position);
 
                     }
