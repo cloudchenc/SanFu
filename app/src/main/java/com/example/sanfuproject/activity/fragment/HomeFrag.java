@@ -53,9 +53,6 @@ public class HomeFrag extends Fragment {
     //开始解析数据
     private void initdata() {
         if (datas != null) {
-//        System.out.println("--111111parsejson");
-//            System.out.println("--111111" + datas);
-
             for (int i = 0; i < 8; i++) {
                 if (i == 2) {
                     for (int j = 0; j < datas.get(i).getList().size(); j++) {

@@ -29,7 +29,7 @@ public class FreshGridAdapter extends BaseAdapter {
         this.context = context;
         layoutInflater = layoutInflater.from(context);
         this.data = data;
-        System.out.println("--data:" + data);
+//        System.out.println("--data:" + data);
     }
 
     @Override

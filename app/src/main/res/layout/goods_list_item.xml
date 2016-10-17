@@ -3,89 +3,23 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="#ffffffff"
-    android:orientation="vertical">
+    android:orientation="horizontal">
 
-    <RelativeLayout
-        android:layout_width="fill_parent"
+    <TextView
+        android:id="@+id/goods_wayStr"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10.0dip"
-        android:layout_marginTop="10.0dip">
+        android:layout_marginLeft="10dp"
+        android:background="@android:color/darker_gray"
+        android:padding="3dp"
+        android:textColor="@android:color/white"
+        android:textSize="16sp" />
 
-        <ImageView
-            android:id="@+id/item_goods_img"
-            android:layout_width="80.0dip"
-            android:layout_height="80.0dip"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="10.0dip" />
-
-        <TextView
-            android:id="@+id/item_goods_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5.0dip"
-            android:layout_toRightOf="@id/item_goods_img"
-            android:maxEms="8"
-            android:text="三福2015女夏季新版套头  橙色竖立条纹刻印花短袖T恤" />
-
-        <TextView
-            android:id="@+id/goods_price"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="10.0dip"
-            android:text="￥   789.00"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/goods_color"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@id/item_goods_name"
-            android:layout_below="@id/item_goods_name"
-            android:layout_marginTop="7.0dip"
-            android:text="颜色:浅蓝色" />
-
-        <TextView
-            android:id="@+id/goods_size"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@id/goods_color"
-            android:layout_marginLeft="15.0dip"
-            android:layout_marginTop="7.0dip"
-            android:layout_toRightOf="@id/goods_color"
-            android:text="尺寸:s号" />
-
-        <TextView
-            android:id="@+id/goods_num"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_below="@id/goods_price"
-            android:layout_marginRight="10.0dip"
-            android:layout_marginTop="7.0dip" />
-
-        <TextView
-            android:id="@+id/yun_fei"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@id/goods_color"
-            android:layout_below="@id/goods_color"
-            android:layout_marginTop="7.0dip" />
-
-        <TextView
-            android:id="@+id/return_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_below="@id/goods_num"
-            android:layout_marginRight="20.0dip"
-            android:layout_marginTop="5.0dip"
-            android:background="@drawable/button_red_side_nine"
-            android:paddingLeft="10.0dip"
-            android:paddingTop="8.0dip"
-            android:text="退款"
-            android:textColor="#ffff82ab"
-            android:textSize="15.0dip"
-            android:visibility="gone" />
-    </RelativeLayout>
+    <TextView
+        android:id="@+id/goods_wayCon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:textSize="16sp"
+        android:textStyle="bold" />
 </LinearLayout>
