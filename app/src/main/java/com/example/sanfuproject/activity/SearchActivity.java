@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.LinearLayout;
@@ -83,6 +84,7 @@ public class SearchActivity extends AppCompatActivity {
             map.put("l_img", bean.getL_img());
             map.put("goods_name", bean.getGoods_name());
             map.put("mb_price", bean.getMb_price());
+            map.put("goods_sn", bean.getGoods_sn());
             data.add(map);
         }
         adapter.notifyDataSetChanged();
@@ -91,8 +93,7 @@ public class SearchActivity extends AppCompatActivity {
 
     private void initView() {
         //初始化搜索框，设置关键字
-        Intent intent = getIntent();
-        keyword = intent.getStringExtra("keyword");
+        keyword = getIntent().getStringExtra("keyword");
         System.out.println("--" + keyword);
         EditText editText = (EditText) findViewById(R.id.search_activity_edit);
         editText.setText(keyword);
@@ -120,5 +121,14 @@ public class SearchActivity extends AppCompatActivity {
         //设置适配器
         adapter = new FreshGridAdapter(this, data);
         mGridView.setAdapter(adapter);
+        mGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String detail = "http://m.sanfu.com/app/display.htm?goods.goods_sn=" + data.get(position).get("goods_sn") + "&sid=a9f809a7c00111dd3abc3d49a06da2e4&source=1&key=djxmgukqymnbosx&sign=DF721C9810AB86D1669B9B82DC152C42";
+                Intent intent = new Intent(getBaseContext(), GoodsActivity.class);
+                intent.putExtra("detail", detail);
+                startActivity(intent);
+            }
+        });
     }
 }

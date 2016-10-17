@@ -19,23 +19,27 @@
             android:layout_width="0.0dip"
             android:layout_height="52.0dip"
             android:layout_weight="1.0"
+            android:drawableLeft="@drawable/abs__ic_back"
             android:ellipsize="end"
             android:gravity="center|left"
             android:maxLines="1"
-            android:singleLine="true" />
+            android:singleLine="true"
+            android:text="商品详情" />
 
         <TextView
             android:id="@+id/goods_detail_new_txv_cart"
             android:layout_width="wrap_content"
             android:layout_height="52.0dip"
-            android:gravity="center_vertical" />
+            android:gravity="center_vertical"
+            android:text="首页" />
 
         <TextView
             android:id="@+id/goods_detail_new_txv_dot"
             android:layout_width="wrap_content"
             android:layout_height="52.0dip"
             android:layout_marginLeft="10.0dip"
-            android:gravity="center_vertical" />
+            android:gravity="center_vertical"
+            android:text="分享" />
     </LinearLayout>
 
     <View
@@ -71,8 +75,8 @@
 
                         <android.support.v4.view.ViewPager
                             android:id="@+id/goods_detail_new_vpg_image_scroll"
-                            android:layout_width="fill_parent"
-                            android:layout_height="fill_parent" />
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" />
 
                         <RelativeLayout
                             android:layout_width="fill_parent"
