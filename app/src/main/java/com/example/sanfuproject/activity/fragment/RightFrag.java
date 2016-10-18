@@ -37,7 +37,7 @@ public class RightFrag extends Fragment {
         View view = inflater.inflate(R.layout.fragment_right, null);
         final EditText editText = (EditText) view.findViewById(R.id.search_edit);
         final TextView scan = (TextView) view.findViewById(R.id.search_scan);
-//        System.out.println("--" + scan_data);
+        System.out.println("--" + scan_data);
         scan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
