@@ -42,6 +42,10 @@ public class SearchActivity extends AppCompatActivity {
         setContentView(R.layout.activity_search);
         initData();
         initView();
+        ii();
+    }
+
+    private void ii() {
     }
 
     private void initData() {
