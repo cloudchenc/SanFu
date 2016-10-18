@@ -1,20 +1,18 @@
 package com.example.sanfuproject.activity;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.GridView;
-import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.alibaba.fastjson.JSON;
 import com.example.sanfuproject.R;
 import com.example.sanfuproject.activity.adapters.FreshGridAdapter;
 import com.example.sanfuproject.activity.entity.Search;
-import com.example.sanfuproject.activity.utils.GetDataTask;
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshGridView;
 
@@ -22,13 +20,11 @@ import org.xutils.common.Callback;
 import org.xutils.http.RequestParams;
 import org.xutils.x;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
-import static com.example.sanfuproject.R.id.search;
 import static com.example.sanfuproject.activity.utils.Constants.goodsSearch;
 import static com.example.sanfuproject.activity.utils.Constants.keyword;
 
