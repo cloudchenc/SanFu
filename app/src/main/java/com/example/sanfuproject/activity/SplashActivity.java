@@ -35,20 +35,18 @@ public class SplashActivity extends AppCompatActivity {
     }
 
     private void initData() {
-        if (JsonUtils.isNetworkConnected(getBaseContext()) == true) {
-            new Thread() {
-                @Override
-                public void run() {
-                    String homejson = JsonUtils.loadJson(homeStr);
-                    Home h = JSON.parseObject(homejson, Home.class);
-                    datas = h.getMsg().getIndex();
+        new Thread() {
+            @Override
+            public void run() {
+                String homejson = JsonUtils.loadJson(homeStr);
+                Home h = JSON.parseObject(homejson, Home.class);
+                datas = h.getMsg().getIndex();
 
-                    String classifyJson = JsonUtils.loadJson(classifyStr);
-                    Classify classify = JsonUtils.parseJson(classifyJson);
-                    category = classify.getMsg().getCategory();
-                }
-            }.start();
-        }
+                String classifyJson = JsonUtils.loadJson(classifyStr);
+                Classify classify = JsonUtils.parseJson(classifyJson);
+                category = classify.getMsg().getCategory();
+            }
+        }.start();
     }
 
     private void init() {
