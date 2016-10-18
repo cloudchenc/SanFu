@@ -58,11 +58,9 @@ public class HomeFrag extends Fragment {
                     for (int j = 0; j < datas.get(i).getList().size(); j++) {
                         list4.add(datas.get(i).getList().get(j).getImg());
                     }
-                    System.out.println("==" + list4.size());
                     MyGridView gridView1 = (MyGridView) view.findViewById(R.id.gridView1);
                     HomeGridView1 adapter1 = new HomeGridView1(getContext(), (ArrayList<String>) list4);
                     gridView1.setAdapter(adapter1);
-
 
                 } else if (i == 4) {
                     for (int j = 1; j < datas.get(i).getList().size(); j++) {

@@ -292,4 +292,73 @@ public class ScrollViewContainer extends RelativeLayout {
         }
     }
 
+    /**
+     * 移除handler及mTimer防止内存泄漏 需要在Activity的onDestroy里面调用
+     **/
+    public void removeAllHandle() {
+        handler.removeCallbacksAndMessages(null);
+        mTimer.cancel();
+    }
+
+    private OnUpPullHintListener upl;
+    private OnSecondViewShowListener l;
+
+    /**
+     * 监听第二个界面出现的事件
+     **/
+    public void setOnSecondViewShowListener(OnSecondViewShowListener l) {
+        this.l = l;
+    }
+
+    /**
+     * 监听界面改变的事件
+     **/
+    public void setOnUpPullHintListener(OnUpPullHintListener upl) {
+        this.upl = upl;
+    }
+
+    /**
+     * 滑动到顶部
+     **/
+    public void scrollToTop() {
+        mMoveLen = 0;
+        state = DONE;
+        mCurrentViewIndex = 0;
+        mEvents = -1;
+        canPullUp = false;
+        canPullDown = true;
+
+        if (upl != null) {
+            upl.onUpPullHintListener(upl.STATE_DWON);
+        }
+        requestLayout();
+        if (bottomView instanceof ScrollView) {
+            //都可以实现滑动到顶部，fullScroll实现的更自然
+            ((ScrollView) bottomView).fullScroll(ScrollView.FOCUS_UP);
+//            ((ScrollView) bottomView).smoothScrollTo(0, 0);
+        }
+        if (topView instanceof ScrollView) {
+            ((ScrollView) topView).fullScroll(ScrollView.FOCUS_UP);
+//            ((ScrollView) topView).scrollTo(0, 0);
+        }
+    }
+
+    /**
+     * 上拉提示
+     */
+    public interface OnUpPullHintListener {
+
+        public static final int STATE_UP = 1; // 上拉提示
+        public static final int STATE_DWON = 2; // 滚回提示
+
+        public void onUpPullHintListener(int state);
+    }
+
+    /**
+     * 显示第二页的回调
+     */
+    public interface OnSecondViewShowListener {
+        public void onSecondViewShow();
+    }
+
 }

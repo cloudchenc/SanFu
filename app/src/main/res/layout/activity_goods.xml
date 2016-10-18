@@ -58,6 +58,7 @@
             android:layout_height="fill_parent">
 
             <ScrollView
+                android:id="@+id/topScrollView"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:scrollbars="none">
@@ -329,6 +330,7 @@
                         android:id="@+id/goods_detail_new_liy_shopping_items"
                         android:layout_width="fill_parent"
                         android:layout_height="40.0dip"
+                        android:clickable="true"
                         android:gravity="center_vertical"
                         android:orientation="horizontal"
                         android:paddingLeft="10.0dip"
@@ -385,6 +387,7 @@
             </ScrollView>
 
             <ScrollView
+                android:id="@+id/bottomScrollView"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:layout_alignParentLeft="true"

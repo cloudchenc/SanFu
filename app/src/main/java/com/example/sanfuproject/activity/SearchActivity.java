@@ -88,13 +88,13 @@ public class SearchActivity extends AppCompatActivity {
             data.add(map);
         }
         adapter.notifyDataSetChanged();
-        System.out.println("--get" + data);
+//        System.out.println("--data:" + data);
     }
 
     private void initView() {
         //初始化搜索框，设置关键字
         keyword = getIntent().getStringExtra("keyword");
-        System.out.println("--" + keyword);
+//        System.out.println("--" + keyword);
         EditText editText = (EditText) findViewById(R.id.search_activity_edit);
         editText.setText(keyword);
 

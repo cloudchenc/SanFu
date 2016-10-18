@@ -1,27 +1,41 @@
 package com.example.sanfuproject.activity;
 
+import android.content.Context;
+import android.graphics.drawable.ColorDrawable;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
+import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.PopupWindow;
+import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.alibaba.fastjson.JSON;
 import com.example.sanfuproject.R;
 import com.example.sanfuproject.activity.adapters.GoodsLvAdapter;
+import com.example.sanfuproject.activity.adapters.WinconGridAdapter;
+import com.example.sanfuproject.activity.adapters.WinproLvAdapter;
 import com.example.sanfuproject.activity.entity.Goods;
-import com.example.sanfuproject.activity.entity.Search;
 import com.example.sanfuproject.activity.view.MyListView;
+import com.example.sanfuproject.activity.view.ScrollViewContainer;
 import com.squareup.picasso.Picasso;
 
 import org.xutils.common.Callback;
 import org.xutils.http.RequestParams;
+import org.xutils.view.annotation.Event;
 import org.xutils.view.annotation.ViewInject;
 import org.xutils.x;
 
@@ -30,11 +44,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static android.R.attr.data;
-import static com.example.sanfuproject.R.id.image;
-import static com.example.sanfuproject.R.id.search;
 import static com.example.sanfuproject.R.id.textView;
-import static com.example.sanfuproject.activity.utils.Constants.goodsSearch;
 
 public class GoodsActivity extends AppCompatActivity {
 
@@ -56,6 +66,10 @@ public class GoodsActivity extends AppCompatActivity {
     private GoodsLvAdapter Lvadapter;
     private ArrayList<Map<String, String>> data = new ArrayList<Map<String, String>>();
     private ArrayList<View> vp_view;
+    private ArrayList<Map<String, String>> pro_data = new ArrayList<Map<String, String>>();
+    private WinproLvAdapter proAdapter;
+    private ArrayList<Map<String, String>> con_data = new ArrayList<Map<String, String>>();
+    private static int number = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -129,6 +143,56 @@ public class GoodsActivity extends AppCompatActivity {
             data.add(map);
         }
         Lvadapter.notifyDataSetChanged();
+
+        //产品参数: 数据源混乱
+        Map<String, String> map1 = new HashMap<String, String>();
+        map1.put("class", "类型");
+        map1.put("content", goods.getMsg().getGoodsProps().getPattern());
+        Map<String, String> map2 = new HashMap<String, String>();
+        map2.put("class", "季节");
+        map2.put("content", goods.getMsg().getGoodsProps().getSeason());
+        Map<String, String> map3 = new HashMap<String, String>();
+        map3.put("class", "货号");
+        map3.put("content", goods.getMsg().getGoodsProps().getGoods_sn() + "");
+        Map<String, String> map4 = new HashMap<String, String>();
+        map4.put("class", "系列");
+        map4.put("content", goods.getMsg().getGoodsProps().getNetcollection());
+        Map<String, String> map5 = new HashMap<String, String>();
+        map5.put("class", "材质");
+        map5.put("content", goods.getMsg().getGoodsProps().getMaterial());
+        Map<String, String> map6 = new HashMap<String, String>();
+        map6.put("class", "风格");
+        map6.put("content", goods.getMsg().getGoodsProps().getGoostyle());
+        Map<String, String> map7 = new HashMap<String, String>();
+        map7.put("class", "温馨提示");
+        map7.put("content", "");
+        Map<String, String> map8 = new HashMap<String, String>();
+        map8.put("class", "商品描述");
+        map8.put("content", "");
+        pro_data.add(map1);
+        pro_data.add(map2);
+        pro_data.add(map3);
+        pro_data.add(map4);
+        pro_data.add(map5);
+        pro_data.add(map6);
+        pro_data.add(map7);
+        pro_data.add(map8);
+
+        //购物车参数
+        List<Goods.MsgBean.GoodsSpeciBean> speci = goods.getMsg().getGoodsSpeci();
+        for (Goods.MsgBean.GoodsSpeciBean bean : speci) {
+            Map<String, String> map = new HashMap<String, String>();
+            map.put("number", bean.getNumber() + "");
+            map.put("size_name", bean.getSize_name());
+            map.put("color_name", bean.getColor_name());
+            con_data.add(map);
+        }
+//        System.out.println("--con_data:" + con_data);
+
+        //计算库存
+        for (Map<String, String> item : con_data) {
+            number += Integer.parseInt(item.get("number"));
+        }
     }
 
     private void initView() {
@@ -185,6 +249,185 @@ public class GoodsActivity extends AppCompatActivity {
                 return vp_view.get(position);
             }
         });
+    }
 
+    @Event(R.id.goods_detail_new_liy_shopping_items)
+    private void showPro(View view) {
+        showProduct();
+    }
+
+    @Event(value = {R.id.goods_detail_new_liy_selected_size_and_color, R.id.goods_detail_new_txv_add_cart, R.id.goods_detail_new_txv_buy_first})
+    private void showCart(View view) {
+        showCartWindow();
+    }
+
+    boolean size_flag = false;
+    boolean color_flag = false;
+
+    private void showCartWindow() {
+        // 利用layoutInflater获得View
+        LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View view = inflater.inflate(R.layout.window_cart, null);
+
+        ImageView content_img = (ImageView) view.findViewById(R.id.content_img);
+        Picasso.with(this).load(goods.getMsg().getGoodsPhotolist().get(0).getM_img()).into(content_img);
+
+        TextView content_price = (TextView) view.findViewById(R.id.content_price);
+        content_price.setText("￥" + goods.getMsg().getGoods().getMb_price() + ".00");
+
+        TextView content_number = (TextView) view.findViewById(R.id.content_number);
+        content_number.setText("库存(" + number + ")件");
+
+        final GridView grid_size_name = (GridView) view.findViewById(R.id.grid_size_name);
+        final WinconGridAdapter sizeAdapter = new WinconGridAdapter(this, con_data, "size_name");
+        grid_size_name.setAdapter(sizeAdapter);
+
+        grid_size_name.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                size_flag = true;
+                sizeAdapter.changeSelected(position);
+                sizeAdapter.notifyDataSetInvalidated();
+            }
+        });
+
+        final GridView grid_color_name = (GridView) view.findViewById(R.id.grid_color_name);
+        final WinconGridAdapter colorAdapter = new WinconGridAdapter(this, con_data, "color_name");
+        grid_color_name.setAdapter(colorAdapter);
+        grid_color_name.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                color_flag = true;
+                colorAdapter.changeSelected(position);
+                colorAdapter.notifyDataSetInvalidated();
+            }
+        });
+
+        final TextView content_num = (TextView) view.findViewById(R.id.content_num);
+        final Button del_num = (Button) view.findViewById(R.id.del_num);
+        del_num.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int current = Integer.parseInt((String) content_num.getText());
+                if (current > 1) {
+                    current--;
+                }
+                //大坑！！！不转为字符串默认是资源id，所以报出Resources$NotFoundException
+                content_num.setText(current + "");
+            }
+        });
+        Button add_num = (Button) view.findViewById(R.id.add_num);
+        add_num.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int current = Integer.parseInt((String) content_num.getText());
+                current++;
+                //大坑！！！不转为字符串默认是资源id，所以报出Resources$NotFoundException
+                content_num.setText(current + "");
+            }
+        });
+
+        Button content_sure = (Button) view.findViewById(R.id.content_sure);
+        content_sure.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (size_flag) {
+                    if (color_flag) {
+
+                    } else {
+                        Toast.makeText(getApplicationContext(), "请选择颜色", Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+                    Toast.makeText(getApplicationContext(), "请选择尺码", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        // 下面是两种方法得到宽度和高度 getWindow().getDecorView().getWidth()
+
+        final PopupWindow window = new PopupWindow(view,
+                WindowManager.LayoutParams.MATCH_PARENT,
+                WindowManager.LayoutParams.WRAP_CONTENT);
+
+        // 设置popWindow弹出窗体可点击，这句话必须添加，并且是true
+        window.setFocusable(true);
+
+        // 设置popWindow的显示和消失动画
+        window.setAnimationStyle(R.style.mypopwindow_anim_style);
+        // 在底部显示
+        window.showAtLocation(GoodsActivity.this.findViewById(R.id.goods_detail_new_txv_add_cart),
+                Gravity.BOTTOM, 0, 0);
+
+        // 这里检验popWindow里的button是否可以点击
+        ImageView close_img = (ImageView) view.findViewById(R.id.close_content);
+        close_img.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+//                System.out.println("--closeWindow");
+                window.dismiss();
+            }
+        });
+
+        //popWindow消失监听方法
+        window.setOnDismissListener(new PopupWindow.OnDismissListener() {
+
+            @Override
+            public void onDismiss() {
+//                System.out.println("popWindow消失");
+            }
+        });
+    }
+
+    private void showProduct() {
+        // 利用layoutInflater获得View
+        LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View view = inflater.inflate(R.layout.window_product, null);
+
+        ListView listView = (ListView) view.findViewById(R.id.product_listView);
+        proAdapter = new WinproLvAdapter(this, pro_data);
+        listView.setAdapter(proAdapter);
+
+        // 下面是两种方法得到宽度和高度 getWindow().getDecorView().getWidth()
+
+        final PopupWindow window = new PopupWindow(view,
+                WindowManager.LayoutParams.MATCH_PARENT,
+                WindowManager.LayoutParams.WRAP_CONTENT);
+
+        // 设置popWindow弹出窗体可点击，这句话必须添加，并且是true
+        window.setFocusable(true);
+
+        // 设置popWindow的显示和消失动画
+        window.setAnimationStyle(R.style.mypopwindow_anim_style);
+        // 在底部显示
+        window.showAtLocation(GoodsActivity.this.findViewById(R.id.goods_detail_new_liy_shopping_items),
+                Gravity.BOTTOM, 0, 0);
+
+        // 这里检验popWindow里的button是否可以点击
+        ImageView close_img = (ImageView) view.findViewById(R.id.close_product);
+        close_img.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+//                System.out.println("--closeWindow");
+                window.dismiss();
+            }
+        });
+
+        //popWindow消失监听方法
+        window.setOnDismissListener(new PopupWindow.OnDismissListener() {
+
+            @Override
+            public void onDismiss() {
+//                System.out.println("popWindow消失");
+            }
+        });
+    }
+
+    //点击回到顶部
+    @Event(R.id.goods_detail_new__back_top)
+    private void back2Top(View view) {
+        ScrollViewContainer container = (ScrollViewContainer) findViewById(R.id.goods_drtial_new_scrollviewcontainer);
+        container.scrollToTop();
     }
 }
