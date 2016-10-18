@@ -1,9 +1,5 @@
 package com.example.sanfuproject.activity.utils;
 
-import android.content.Context;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-
 import com.alibaba.fastjson.JSON;
 import com.example.sanfuproject.activity.entity.Classify;
 
@@ -16,20 +12,6 @@ import java.net.URLConnection;
  */
 
 public class JsonUtils {
-
-    //判断网络是否连接
-    public static boolean isNetworkConnected(Context context) {
-        if (context != null) {
-            ConnectivityManager mConnectivityManager = (ConnectivityManager) context
-                    .getSystemService(Context.CONNECTIVITY_SERVICE);
-            NetworkInfo mNetworkInfo = mConnectivityManager.getActiveNetworkInfo();
-            if (mNetworkInfo != null) {
-                return true;
-            }
-        }
-        return false;
-    }
-
     /**
      * 获得到json字符串
      */
@@ -38,7 +20,6 @@ public class JsonUtils {
             URL url = new URL(path);
             URLConnection connection = url.openConnection();
             connection.setConnectTimeout(5000);
-
             InputStream is = connection.getInputStream();
             byte[] arr = new byte[1024];
             int len = 0;

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical">
@@ -98,7 +99,6 @@
                 android:layout_weight="1.0"
                 android:gravity="center"
                 android:text="综合"
-                android:clickable="true"
                 android:textColor="#ffa2a2a2"
                 android:textSize="14.0sp" />
 
@@ -114,7 +114,6 @@
                 android:layout_weight="1.0"
                 android:gravity="center"
                 android:text="最新"
-                android:clickable="true"
                 android:textColor="#ffa2a2a2"
                 android:textSize="14.0sp" />
 
@@ -130,7 +129,6 @@
                 android:layout_weight="1.0"
                 android:gravity="center"
                 android:text="销量"
-                android:clickable="true"
                 android:textColor="#ffa2a2a2"
                 android:textSize="14.0sp" />
 
@@ -152,7 +150,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="价格"
-                    android:clickable="true"
                     android:textColor="#ffa2a2a2"
                     android:textSize="14.0sp" />
 
@@ -171,7 +168,6 @@
             android:orientation="vertical">
 
             <com.handmark.pulltorefresh.library.PullToRefreshGridView
-                xmlns:ptr="http://schemas.android.com/apk/res-auto"
                 android:id="@+id/goods_list_gridview"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
@@ -181,14 +177,7 @@
                 android:horizontalSpacing="10.0dip"
                 android:numColumns="2"
                 android:scrollbars="none"
-                android:verticalSpacing="10.0dip"
-                ptr:ptrMode="both"
-                ptr:ptrDrawable="@drawable/ssdk_oks_ptr_ptr"
-                ptr:ptrAnimationStyle="flip"
-                />
-
-
-
+                android:verticalSpacing="10.0dip" />
 
             <ImageView
                 android:id="@+id/goods_list_back_top"
