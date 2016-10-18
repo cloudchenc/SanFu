@@ -12,9 +12,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.example.sanfuproject.R;
-import com.example.sanfuproject.activity.ClassRoomActivity;
-import com.example.sanfuproject.activity.FoundActivity;
 import com.example.sanfuproject.activity.PlusActivity;
+import com.example.sanfuproject.activity.SearchActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,8 +38,8 @@ public class LeftFrag extends Fragment {
      */
     private void initDate() {
         list = new ArrayList<>();
-        list.add("男生   BOYS");
-        list.add("女生   GIRLS");
+//        list.add("男生   BOYS");
+//        list.add("女生   GIRLS");
         list.add("饰品   ACCESSORIES");
         list.add("折扣专区   SALL");
         list.add("时尚优选   PLUS");
@@ -61,27 +60,38 @@ public class LeftFrag extends Fragment {
 //               Toast.makeText(getActivity().getBaseContext(), ""+position, Toast.LENGTH_SHORT).show();
                 Intent it = null;
                 switch (position) {
+//                    case 0:
+//                        break;
+//                    case 1:
+//                        break;
                     case 0:
+                        String key1 = "饰品";
+                        it = new Intent(getActivity(), SearchActivity.class);
+                        it.putExtra("keyword", key1);
                         break;
                     case 1:
+                        String key2 = "折扣";
+                        it = new Intent(getActivity(), SearchActivity.class);
+                        it.putExtra("keyword", key2);
                         break;
                     case 2:
+                        String path1 = "http://m.sanfu.com/goods/bestlist.htm?ajax=2";
+                        it = new Intent(getActivity(), PlusActivity.class);
+                        it.putExtra("path", path1);
                         break;
                     case 3:
+                        String path2 = "http://m.sanfu.com/goods/bestlist.htm?ajax=3";
+                        it = new Intent(getActivity(), PlusActivity.class);
+                        it.putExtra("path", path2);
                         break;
                     case 4:
+                        String path3 = "http://m.sanfu.com/community/showCommunity.htm";
                         it = new Intent(getActivity(), PlusActivity.class);
-                        startActivity(it);
-                        break;
-                    case 5:
-                        it = new Intent(getActivity(), ClassRoomActivity.class);
-                        startActivity(it);
-                        break;
-                    case 6:
-                        it = new Intent(getActivity(), FoundActivity.class);
-                        startActivity(it);
+                        it.putExtra("path", path3);
                         break;
                 }
+
+                startActivity(it);
 
             }
         });

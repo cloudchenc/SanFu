@@ -11,7 +11,6 @@ import android.widget.TextView;
 import com.example.sanfuproject.R;
 import com.squareup.picasso.Picasso;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Map;
 
@@ -29,7 +28,7 @@ public class FreshGridAdapter extends BaseAdapter {
         this.context = context;
         layoutInflater = layoutInflater.from(context);
         this.data = data;
-        System.out.println("--data:" + data);
+//        System.out.println("--data:" + data);
     }
 
     @Override

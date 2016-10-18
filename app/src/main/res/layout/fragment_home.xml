@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+
     android:layout_height="match_parent"
     android:orientation="vertical">
 
@@ -44,21 +45,31 @@
     </android.support.v7.widget.Toolbar>
 
     <ScrollView
+        android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scrollbars="none">
 
+
         <LinearLayout
+            android:id="@+id/linearlayouy"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
 
+            <!--<ImageView-->
+                <!--android:id="@+id/image_no"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content" />-->
+
             <ImageView
                 android:id="@+id/image1"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:clickable="true" />
 
             <LinearLayout
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="7dp"
@@ -106,8 +117,10 @@
             </com.example.sanfuproject.activity.view.MyGridView>
 
             <LinearLayout
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+
 
                 <FrameLayout
                     android:id="@+id/framelayout"
@@ -118,6 +131,39 @@
                         android:id="@+id/image5_0"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:id="@+id/text_h"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="39dp"
+                        android:layout_marginTop="33dp"
+                        android:textColor="#ff0000"
+                        android:textSize="18sp" />
+                    <!--android:layout_gravity="center|top|left"-->
+
+
+                    <TextView
+                        android:id="@+id/text_m"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center|top"
+                        android:layout_marginTop="33dp"
+                        android:textColor="#00ff00"
+                        android:textSize="18sp" />
+
+                    <TextView
+
+                        android:id="@+id/text_s"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="106dp"
+                        android:layout_marginTop="33dp"
+                        android:textColor="#ffff00"
+                        android:textSize="18sp" />/>
+                    <!--android:layout_gravity="center|top|right"
+                     android:layout_marginRight="40dp"-->
+
                 </FrameLayout>
 
                 <LinearLayout
