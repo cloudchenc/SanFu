@@ -14,17 +14,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
+            android:text="购物车"
             android:textSize="18.0sp" />
-
-        <TextView
-            android:id="@+id/goods_cart_txv_sandian"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="5.0dip"
-            android:layout_marginRight="10.0dip"
-            android:visibility="gone" />
 
         <LinearLayout
             android:id="@+id/goods_cart_linearlayout_del"
@@ -85,16 +76,17 @@
                 android:paddingLeft="10.0dip"
                 android:paddingRight="5.0dip">
 
-                <TextView
+                <ImageView
                     android:id="@+id/goods_cart_txv_button_select"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/ic_launcher" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="3.0dip"
-                    android:text="all_selected" />
+                    android:text="全选" />
             </LinearLayout>
 
             <LinearLayout
@@ -131,9 +123,10 @@
                     android:layout_height="32.0dip"
                     android:layout_marginLeft="12.0dip"
                     android:layout_marginRight="12.0dip"
+                    android:background="@android:color/holo_red_light"
                     android:paddingLeft="20.0dip"
                     android:paddingRight="20.0dip"
-                    android:text="settlement"
+                    android:text="去结算"
                     android:textColor="@android:color/white"
                     android:textSize="15.0sp" />
             </LinearLayout>

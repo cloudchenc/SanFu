@@ -1,6 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<<<<<<< HEAD
-<merger version="3"><dataSet config="main"><source path="F:\Sanfu\pulltorefresh\src\main\shaders"/></dataSet><dataSet config="release"><source path="F:\Sanfu\pulltorefresh\src\release\shaders"/></dataSet></merger>
-=======
 <merger version="3"><dataSet config="main"><source path="D:\Workspace\studio-workspace\Sanfu\pulltorefresh\src\main\shaders"/></dataSet><dataSet config="release"><source path="D:\Workspace\studio-workspace\Sanfu\pulltorefresh\src\release\shaders"/></dataSet></merger>
->>>>>>> 45a0ef5c1a7022184614198c6631bd5d7542e01b

@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.sanfuproject.R;
@@ -41,7 +42,7 @@ public class ManFrag extends Fragment {
         textView.setTextSize(16);
         textView.setHeight(150);
         textView.setGravity(Gravity.CENTER);
-        MyListView listView = (MyListView) view.findViewById(R.id.child_listView);
+        ListView listView = (ListView) view.findViewById(R.id.child_listView);
         listView.addHeaderView(imageView);
         listView.addFooterView(textView);
         initData();
@@ -55,7 +56,7 @@ public class ManFrag extends Fragment {
         for (int i = 0; i < list2Been.size(); i++) {
             if (!list2_name.contains(list2Been.get(i).getName())) {
                 list2_name.add(list2Been.get(i).getName());
-                System.out.println("--" + list2_name.toString());
+//                System.out.println("--" + list2_name.toString());
             }
         }
     }

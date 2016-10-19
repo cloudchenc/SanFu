@@ -1,6 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<<<<<<< HEAD
-<merger version="3"><dataSet config="main"><source path="F:\Sanfu\pulltorefresh\src\main\assets"/><source path="F:\Sanfu\pulltorefresh\build\generated\assets\shaders\debug"/></dataSet><dataSet config="debug"><source path="F:\Sanfu\pulltorefresh\src\debug\assets"/></dataSet></merger>
-=======
 <merger version="3"><dataSet config="main"><source path="D:\Workspace\studio-workspace\Sanfu\pulltorefresh\src\main\assets"/><source path="D:\Workspace\studio-workspace\Sanfu\pulltorefresh\build\generated\assets\shaders\debug"/></dataSet><dataSet config="debug"><source path="D:\Workspace\studio-workspace\Sanfu\pulltorefresh\src\debug\assets"/></dataSet></merger>
->>>>>>> 45a0ef5c1a7022184614198c6631bd5d7542e01b

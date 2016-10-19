@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config="main"><source path="D:\cc\studio-workspace\Sanfu\pulltorefresh\src\main\assets"/><source path="D:\cc\studio-workspace\Sanfu\pulltorefresh\build\generated\assets\shaders\debug"/></dataSet><dataSet config="debug"><source path="D:\cc\studio-workspace\Sanfu\pulltorefresh\src\debug\assets"/></dataSet></merger>

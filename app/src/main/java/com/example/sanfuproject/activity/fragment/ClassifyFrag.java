@@ -63,12 +63,6 @@ public class ClassifyFrag extends Fragment {
             }
         });
 
-<<<<<<< HEAD
-            for (int i = 0; i < category.size(); i++) {
-                classList.add(category.get(i).getName().replace(" ", ""));
-                System.out.println("--" + classList.toString());
-            }
-=======
         for (int i = 0; i < category.size(); i++) {
             classList.add(category.get(i).getName().replace(" ", ""));
 //                System.out.println("--" + classList.toString());
@@ -81,7 +75,6 @@ public class ClassifyFrag extends Fragment {
         vpList.add(new WomanFrag());
         vpList.add(new ClothFrag());
         vpList.add(new BagFrag());
->>>>>>> 45a0ef5c1a7022184614198c6631bd5d7542e01b
 
         handler.post(new Runnable() {
             @Override
