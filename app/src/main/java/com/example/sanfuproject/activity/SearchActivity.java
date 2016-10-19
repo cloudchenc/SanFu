@@ -41,10 +41,6 @@ public class SearchActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
         initView();
-        ii();
-    }
-
-    private void ii() {
     }
 
     private void initData() {
