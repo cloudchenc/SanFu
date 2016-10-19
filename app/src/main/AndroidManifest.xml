@@ -4,6 +4,13 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"></uses-permission>
+
+    <!-- 相机 -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <!-- 振动 -->
+    <uses-permission android:name="android.permission.VIBRATE" />
+
 
     <application
         android:name=".activity.MyApplication"
@@ -23,12 +30,12 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.GuideActivity" />
-        <activity android:name=".activity.FoundActivity" />
-        <activity android:name=".activity.ClassRoomActivity" />
         <activity android:name=".activity.PlusActivity" />
         <activity android:name=".activity.SearchActivity" />
+
         <activity android:name=".activity.LoginActivity" />
         <activity android:name=".activity.GoodsActivity"></activity>
+
     </application>
 
 </manifest>

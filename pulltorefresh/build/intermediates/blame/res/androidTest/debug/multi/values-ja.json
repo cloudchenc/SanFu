@@ -1,82 +1,5 @@
 [
     {
-<<<<<<< HEAD
-        "outputFile": "F:\\Sanfu\\pulltorefresh\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values-ja\\values-ja.xml",
-=======
-        "outputFile": "D:\\cc\\studio-workspace\\Sanfu\\pulltorefresh\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values-ja\\values-ja.xml",
->>>>>>> 45a0ef5c1a7022184614198c6631bd5d7542e01b
-        "map": [
-            {
-                "to": {
-                    "startLine": 2,
-                    "startColumn": 4,
-                    "startOffset": 55,
-                    "endColumn": 64,
-                    "endOffset": 115
-                },
-                "from": {
-<<<<<<< HEAD
-                    "file": "F:\\Sanfu\\pulltorefresh\\build\\intermediates\\bundles\\debug\\res\\values-ja\\values-ja.xml",
-=======
-                    "file": "D:\\cc\\studio-workspace\\Sanfu\\pulltorefresh\\build\\intermediates\\bundles\\debug\\res\\values-ja\\values-ja.xml",
->>>>>>> 45a0ef5c1a7022184614198c6631bd5d7542e01b
-                    "position": {
-                        "startLine": 2,
-                        "startColumn": 4,
-                        "startOffset": 55,
-                        "endColumn": 64,
-                        "endOffset": 115
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 3,
-                    "startColumn": 4,
-                    "startOffset": 120,
-                    "endColumn": 67,
-                    "endOffset": 183
-                },
-                "from": {
-<<<<<<< HEAD
-                    "file": "F:\\Sanfu\\pulltorefresh\\build\\intermediates\\bundles\\debug\\res\\values-ja\\values-ja.xml",
-=======
-                    "file": "D:\\cc\\studio-workspace\\Sanfu\\pulltorefresh\\build\\intermediates\\bundles\\debug\\res\\values-ja\\values-ja.xml",
->>>>>>> 45a0ef5c1a7022184614198c6631bd5d7542e01b
-                    "position": {
-                        "startLine": 3,
-                        "startColumn": 4,
-                        "startOffset": 120,
-                        "endColumn": 67,
-                        "endOffset": 183
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 4,
-                    "startColumn": 4,
-                    "startOffset": 188,
-                    "endColumn": 66,
-                    "endOffset": 250
-                },
-                "from": {
-<<<<<<< HEAD
-                    "file": "F:\\Sanfu\\pulltorefresh\\build\\intermediates\\bundles\\debug\\res\\values-ja\\values-ja.xml",
-=======
-                    "file": "D:\\cc\\studio-workspace\\Sanfu\\pulltorefresh\\build\\intermediates\\bundles\\debug\\res\\values-ja\\values-ja.xml",
-                    "position": {
-                        "startLine": 4,
-                        "startColumn": 4,
-                        "startOffset": 188,
-                        "endColumn": 66,
-                        "endOffset": 250
-                    }
-                }
-            }
-        ]
-    },
-    {
         "outputFile": "D:\\Workspace\\studio-workspace\\Sanfu\\pulltorefresh\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values-ja\\values-ja.xml",
         "map": [
             {
@@ -127,7 +50,6 @@
                 },
                 "from": {
                     "file": "D:\\Workspace\\studio-workspace\\Sanfu\\pulltorefresh\\build\\intermediates\\bundles\\debug\\res\\values-ja\\values-ja.xml",
->>>>>>> 45a0ef5c1a7022184614198c6631bd5d7542e01b
                     "position": {
                         "startLine": 4,
                         "startColumn": 4,

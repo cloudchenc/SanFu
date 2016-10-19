@@ -168,6 +168,7 @@
             android:orientation="vertical">
 
             <com.handmark.pulltorefresh.library.PullToRefreshGridView
+                xmlns:ptr="http://schemas.android.com/apk/res-auto"
                 android:id="@+id/goods_list_gridview"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
@@ -177,7 +178,11 @@
                 android:horizontalSpacing="10.0dip"
                 android:numColumns="2"
                 android:scrollbars="none"
-                android:verticalSpacing="10.0dip" />
+                android:verticalSpacing="10.0dip"
+                ptr:ptrMode="both"
+                ptr:ptrDrawable="@drawable/ssdk_oks_ptr_ptr"
+                ptr:ptrAnimationStyle="flip"
+                />
 
             <ImageView
                 android:id="@+id/goods_list_back_top"

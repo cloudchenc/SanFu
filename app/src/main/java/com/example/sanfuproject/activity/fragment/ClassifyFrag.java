@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.view.Gravity;
@@ -42,7 +41,6 @@ public class ClassifyFrag extends Fragment {
     private ArrayList<Fragment> vpList = new ArrayList<Fragment>();
     private LvAdapter adapter;
     private ViewPager viewPager;
-    private VpAdapter pagerAdapter;
 
     @Nullable
     @Override
@@ -62,6 +60,7 @@ public class ClassifyFrag extends Fragment {
                 drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED, Gravity.RIGHT);
             }
         });
+
 
         for (int i = 0; i < category.size(); i++) {
             classList.add(category.get(i).getName().replace(" ", ""));
@@ -87,10 +86,15 @@ public class ClassifyFrag extends Fragment {
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 //                        System.out.println("--item");
                         change(position);
+
                     }
                 });
                 viewPager = (ViewPager) view.findViewById(R.id.viewpager);
-                viewPager.setAdapter(pagerAdapter = new VpAdapter(getChildFragmentManager(), vpList));
+                vpList = new ArrayList<Fragment>();
+                for (int i = 0; i < 4; i++) {
+                    vpList.add(FragmentFactory.createFragment(i));
+                }
+                viewPager.setAdapter(new VpAdapter(getChildFragmentManager(), vpList));
                 viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
                     @Override
                     public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
@@ -115,7 +119,6 @@ public class ClassifyFrag extends Fragment {
         adapter.changeSelected(position);
         adapter.notifyDataSetInvalidated();
         viewPager.setCurrentItem(position);
-        pagerAdapter.notifyDataSetChanged();
     }
 
     //按钮的点击事件必须用private进行修饰(使用失败)

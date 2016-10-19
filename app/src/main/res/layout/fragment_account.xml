@@ -38,7 +38,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <LinearLayout
+            <FrameLayout
                 android:layout_width="fill_parent"
                 android:layout_height="200.0dip"
                 android:background="@drawable/vip_content_bg"
@@ -48,48 +48,61 @@
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content">
 
+                    <Button
+                        android:id="@+id/login"
+                        android:layout_width="70dp"
+                        android:layout_height="32dp"
+                        android:layout_below="@+id/image_me"
+                        android:layout_marginLeft="223dp"
+                        android:layout_marginTop="28dp"
+                        android:background="#ff00ff"
+                        android:text="登录"
+                        android:textColor="#ffffff" />
+
+                    <Button
+                        android:id="@+id/registered"
+                        android:layout_width="70dp"
+                        android:layout_height="32dp"
+                        android:layout_below="@+id/image_me"
+                        android:layout_marginLeft="73dp"
+                        android:layout_marginTop="28dp"
+                        android:background="#ff00ff"
+                        android:text="注册"
+                        android:textColor="#ffffff" />
+
+                    <ImageView
+                        android:id="@+id/image_me"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="12dp"
+                        android:src="@drawable/vip_img" />
 
                 </RelativeLayout>
 
-                <LinearLayout
+                <RelativeLayout
                     android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:layout_height="wrap_content">
 
-                    <RelativeLayout
-                        android:id="@+id/vip_content"
-                        android:layout_width="fill_parent"
+                    <ImageView
+                        android:id="@+id/framelayout_image_2"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginRight="5.0dip"
-                        android:layout_marginTop="2.0dip"
-                        android:orientation="horizontal"
-                        android:visibility="gone">
+                        android:layout_alignParentTop="true"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="12dp"
+                        android:src="@drawable/vip_img" />
 
-                        <TextView
-                            android:id="@+id/user_name"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerHorizontal="true"
-                            android:layout_marginLeft="10.0dip"
-                            android:textSize="18.0sp" />
+                    <TextView
+                        android:id="@+id/name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@+id/framelayout_image_2"
+                        android:layout_below="@+id/framelayout_image_2" />
 
-                        <TextView
-                            android:id="@+id/vip_logog"
-                            android:layout_width="20.0dip"
-                            android:layout_height="20.0dip"
-                            android:layout_toRightOf="@+id/user_name"
-                            android:background="@drawable/vip_logo" />
-
-                        <TextView
-                            android:id="@+id/vip_caed_no"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@+id/user_name"
-                            android:layout_centerHorizontal="true"
-                            android:textColor="#ffed008c" />
-                    </RelativeLayout>
-                </LinearLayout>
-            </LinearLayout>
+                </RelativeLayout>
+            </FrameLayout>
 
             <LinearLayout
                 android:layout_width="fill_parent"
@@ -103,9 +116,12 @@
                     android:gravity="center"
                     android:orientation="vertical">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
+                    <ImageView
+                        android:layout_width="23dp"
+                        android:layout_height="20dp"
+                        android:layout_marginBottom="5dp"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/a1" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -120,9 +136,12 @@
                     android:gravity="center"
                     android:orientation="vertical">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
+                    <ImageView
+                        android:layout_width="23dp"
+                        android:layout_height="20dp"
+                        android:layout_marginBottom="5dp"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/a2" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -137,9 +156,12 @@
                     android:gravity="center"
                     android:orientation="vertical">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="22dp"
+                        android:layout_marginBottom="5dp"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/a3" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -154,9 +176,12 @@
                     android:gravity="center"
                     android:orientation="vertical">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
+                    <ImageView
+                        android:layout_width="23dp"
+                        android:layout_height="20dp"
+                        android:layout_marginBottom="5dp"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/a4" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -171,9 +196,12 @@
                     android:gravity="center"
                     android:orientation="vertical">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
+                    <ImageView
+                        android:layout_width="23dp"
+                        android:layout_height="20dp"
+                        android:layout_marginBottom="5dp"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/a5" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -213,12 +241,13 @@
                         android:layout_marginLeft="70.0dip"
                         android:text="我的订单" />
 
-                    <TextView
+                    <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
-                        android:layout_marginRight="10.0dip" />
+                        android:layout_marginRight="10.0dip"
+                        android:src="@drawable/right_arrows" />
                 </RelativeLayout>
 
                 <View
@@ -247,12 +276,13 @@
                         android:layout_marginLeft="70.0dip"
                         android:text="我的收藏" />
 
-                    <TextView
+                    <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
-                        android:layout_marginRight="10.0dip" />
+                        android:layout_marginRight="10.0dip"
+                        android:src="@drawable/right_arrows" />
                 </RelativeLayout>
 
                 <View
@@ -280,12 +310,13 @@
                         android:layout_marginLeft="70.0dip"
                         android:text="收货地址" />
 
-                    <TextView
+                    <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
-                        android:layout_marginRight="10.0dip" />
+                        android:layout_marginRight="10.0dip"
+                        android:src="@drawable/right_arrows" />
                 </RelativeLayout>
 
                 <View
@@ -313,12 +344,13 @@
                         android:layout_marginLeft="70.0dip"
                         android:text="我的积分" />
 
-                    <TextView
+                    <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
-                        android:layout_marginRight="10.0dip" />
+                        android:layout_marginRight="10.0dip"
+                        android:src="@drawable/right_arrows" />
                 </RelativeLayout>
 
                 <View
@@ -346,12 +378,13 @@
                         android:layout_marginLeft="70.0dip"
                         android:text="我的优惠券" />
 
-                    <TextView
+                    <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
-                        android:layout_marginRight="10.0dip" />
+                        android:layout_marginRight="10.0dip"
+                        android:src="@drawable/right_arrows" />
                 </RelativeLayout>
 
                 <View
@@ -379,12 +412,13 @@
                         android:layout_marginLeft="70.0dip"
                         android:text="积分兑换卡券" />
 
-                    <TextView
+                    <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
-                        android:layout_marginRight="10.0dip" />
+                        android:layout_marginRight="10.0dip"
+                        android:src="@drawable/right_arrows" />
                 </RelativeLayout>
 
                 <View

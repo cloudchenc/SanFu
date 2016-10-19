@@ -1,17 +1,5 @@
 [
     {
-<<<<<<< HEAD
-        "merged": "F:\\Sanfu\\pulltorefresh\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4\\default_ptr_flip.png",
-        "source": "F:\\Sanfu\\pulltorefresh\\build\\intermediates\\bundles\\debug\\res\\drawable-xhdpi-v4\\default_ptr_flip.png"
-    },
-    {
-        "merged": "F:\\Sanfu\\pulltorefresh\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4\\default_ptr_rotate.png",
-        "source": "F:\\Sanfu\\pulltorefresh\\build\\intermediates\\bundles\\debug\\res\\drawable-xhdpi-v4\\default_ptr_rotate.png"
-    },
-    {
-        "merged": "F:\\Sanfu\\pulltorefresh\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4\\indicator_arrow.png",
-        "source": "F:\\Sanfu\\pulltorefresh\\build\\intermediates\\bundles\\debug\\res\\drawable-xhdpi-v4\\indicator_arrow.png"
-=======
         "merged": "D:\\Workspace\\studio-workspace\\Sanfu\\pulltorefresh\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4\\default_ptr_rotate.png",
         "source": "D:\\Workspace\\studio-workspace\\Sanfu\\pulltorefresh\\build\\intermediates\\bundles\\debug\\res\\drawable-xhdpi-v4\\default_ptr_rotate.png"
     },
@@ -20,20 +8,7 @@
         "source": "D:\\Workspace\\studio-workspace\\Sanfu\\pulltorefresh\\build\\intermediates\\bundles\\debug\\res\\drawable-xhdpi-v4\\default_ptr_flip.png"
     },
     {
-        "merged": "D:\\cc\\studio-workspace\\Sanfu\\pulltorefresh\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4\\indicator_arrow.png",
-        "source": "D:\\cc\\studio-workspace\\Sanfu\\pulltorefresh\\build\\intermediates\\bundles\\debug\\res\\drawable-xhdpi-v4\\indicator_arrow.png"
-    },
-    {
-        "merged": "D:\\cc\\studio-workspace\\Sanfu\\pulltorefresh\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4\\default_ptr_flip.png",
-        "source": "D:\\cc\\studio-workspace\\Sanfu\\pulltorefresh\\build\\intermediates\\bundles\\debug\\res\\drawable-xhdpi-v4\\default_ptr_flip.png"
-    },
-    {
         "merged": "D:\\Workspace\\studio-workspace\\Sanfu\\pulltorefresh\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4\\indicator_arrow.png",
         "source": "D:\\Workspace\\studio-workspace\\Sanfu\\pulltorefresh\\build\\intermediates\\bundles\\debug\\res\\drawable-xhdpi-v4\\indicator_arrow.png"
-    },
-    {
-        "merged": "D:\\cc\\studio-workspace\\Sanfu\\pulltorefresh\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4\\default_ptr_rotate.png",
-        "source": "D:\\cc\\studio-workspace\\Sanfu\\pulltorefresh\\build\\intermediates\\bundles\\debug\\res\\drawable-xhdpi-v4\\default_ptr_rotate.png"
->>>>>>> 45a0ef5c1a7022184614198c6631bd5d7542e01b
     }
 ]
