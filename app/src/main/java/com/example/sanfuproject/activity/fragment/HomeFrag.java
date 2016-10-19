@@ -226,8 +226,7 @@ public class HomeFrag extends Fragment {
                         } else {
                             s = 0 + Integer.toString(59 - Integer.parseInt(timeStr.substring(4, 6)));
                         }
-
-//                        System.out.println("==" + timeStr);
+                        //开启子线程一秒设置一次
                         Thread.sleep(1000);
                         handler.post(new Runnable() {
                             @Override
@@ -235,11 +234,9 @@ public class HomeFrag extends Fragment {
                                 textViewh.setText(m);
                                 textViewm.setText(h);
                                 textViews.setText(s);
-
                             }
                         });
                     }
-
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
