@@ -33,7 +33,6 @@ public class SearchActivity extends AppCompatActivity {
     private FreshGridAdapter adapter;
     private PullToRefreshGridView mPullRefreshGridView;
 
-
     int i = 1;
 
     @Override
@@ -47,7 +46,6 @@ public class SearchActivity extends AppCompatActivity {
     private void initData() {
 
         goodsSearch = "http://m.sanfu.com/app/goods/goodsList.htm?goods.class_id=&page=" + i + "&pageSize=40&goods.search_words=" + getIntent().getStringExtra("keyword") + "&goods.is_disc=0&goods.is_hot=0&goods.is_new=2&goods.is_best=0&sid=a9f809a7c00111dd3abc3d49a06da2e4&source=1&key=lflrnhsahuogcuy&sign=E88688DE70D40C1B098A2BCABA4756C7";
-//        System.out.println("--" + goodsSearch);
 
         int[] arr1 = new int[]{R.id.goods_list_txv_is_zong, R.id.goods_list_txv_is_new, R.id.goods_list_txv_is_hot, R.id.goods_list_txv_is_best};
 //        TextView comprehensive = (TextView) findViewById(R.id.goods_list_txv_is_zong);
@@ -110,6 +108,7 @@ public class SearchActivity extends AppCompatActivity {
     private void getData() {
         Search search = JSON.parseObject(searchJson, Search.class);
         List<Search.MsgBean.GoodsInfosBean> goodsInfos = search.getMsg().getGoodsInfos();
+        System.out.println("=="+goodsInfos);
         for (Search.MsgBean.GoodsInfosBean bean : goodsInfos) {
             Map<String, Object> map = new HashMap<>();
             map.put("l_img", bean.getL_img());
@@ -163,6 +162,7 @@ public class SearchActivity extends AppCompatActivity {
                 i++;
                 initData();
             }
+
         });
     }
 

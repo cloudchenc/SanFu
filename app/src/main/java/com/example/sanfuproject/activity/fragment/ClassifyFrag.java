@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.view.Gravity;
@@ -18,10 +17,6 @@ import android.widget.ListView;
 import com.example.sanfuproject.R;
 import com.example.sanfuproject.activity.adapters.LvAdapter;
 import com.example.sanfuproject.activity.adapters.VpAdapter;
-import com.example.sanfuproject.activity.fragment.childfrag.BagFrag;
-import com.example.sanfuproject.activity.fragment.childfrag.ClothFrag;
-import com.example.sanfuproject.activity.fragment.childfrag.ManFrag;
-import com.example.sanfuproject.activity.fragment.childfrag.WomanFrag;
 import com.example.sanfuproject.activity.utils.FragmentFactory;
 
 import java.util.ArrayList;
@@ -39,10 +34,9 @@ public class ClassifyFrag extends Fragment {
     private View view;
     private Handler handler = new Handler();
     private ArrayList<String> classList = new ArrayList<String>();
-    private ArrayList<Fragment> vpList = new ArrayList<Fragment>();
+    private ArrayList<Fragment> vpList;
     private LvAdapter adapter;
     private ViewPager viewPager;
-    private VpAdapter pagerAdapter;
 
     @Nullable
     @Override
@@ -63,25 +57,10 @@ public class ClassifyFrag extends Fragment {
             }
         });
 
-<<<<<<< HEAD
             for (int i = 0; i < category.size(); i++) {
                 classList.add(category.get(i).getName().replace(" ", ""));
                 System.out.println("--" + classList.toString());
             }
-=======
-        for (int i = 0; i < category.size(); i++) {
-            classList.add(category.get(i).getName().replace(" ", ""));
-//                System.out.println("--" + classList.toString());
-        }
-
-        for (int i = 0; i < 4; i++) {
-//            vpList.add(FragmentFactory.createFragment(i));
-        }
-        vpList.add(new ManFrag());
-        vpList.add(new WomanFrag());
-        vpList.add(new ClothFrag());
-        vpList.add(new BagFrag());
->>>>>>> 45a0ef5c1a7022184614198c6631bd5d7542e01b
 
         handler.post(new Runnable() {
             @Override
@@ -94,10 +73,15 @@ public class ClassifyFrag extends Fragment {
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 //                        System.out.println("--item");
                         change(position);
+
                     }
                 });
                 viewPager = (ViewPager) view.findViewById(R.id.viewpager);
-                viewPager.setAdapter(pagerAdapter = new VpAdapter(getChildFragmentManager(), vpList));
+                vpList = new ArrayList<Fragment>();
+                for (int i = 0; i < 4; i++) {
+                    vpList.add(FragmentFactory.createFragment(i));
+                }
+                viewPager.setAdapter(new VpAdapter(getChildFragmentManager(), vpList));
                 viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
                     @Override
                     public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
@@ -122,7 +106,6 @@ public class ClassifyFrag extends Fragment {
         adapter.changeSelected(position);
         adapter.notifyDataSetInvalidated();
         viewPager.setCurrentItem(position);
-        pagerAdapter.notifyDataSetChanged();
     }
 
     //按钮的点击事件必须用private进行修饰(使用失败)
