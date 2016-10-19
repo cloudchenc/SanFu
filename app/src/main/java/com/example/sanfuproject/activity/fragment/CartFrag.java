@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 
 import com.example.sanfuproject.R;
@@ -20,6 +21,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static android.icu.lang.UCharacter.GraphemeClusterBreak.V;
 import static com.example.sanfuproject.activity.MyApplication.db;
 
 /**
@@ -42,17 +44,23 @@ public class CartFrag extends Fragment {
     private void initView() {
         try {
             ListView listView = (ListView) view.findViewById(R.id.goods_cart_lsv_goods_item);
+            View emptyView = view.findViewById(R.id.goods_cart_linearlayout_no_data);
+            listView.setEmptyView(emptyView);
+            System.out.println("--111");
             List<ShopCart> all = db.selector(ShopCart.class).findAll();//findAll()：查询所有结果
-            for (ShopCart item : all) {
+            System.out.println("--" + all);
+            if (all != null) {
+                for (ShopCart item : all) {
 //                Log.i("--", item.toString());
-                Map<String, String> map = new HashMap<String, String>();
-                map.put("img", item.getImgUrl());
-                map.put("name", item.getName());
-                map.put("size", item.getSize());
-                map.put("color", item.getColor());
-                map.put("price", item.getPrice());
-                map.put("number", item.getNumber());
-                cart_data.add(map);
+                    Map<String, String> map = new HashMap<String, String>();
+                    map.put("img", item.getImgUrl());
+                    map.put("name", item.getName());
+                    map.put("size", item.getSize());
+                    map.put("color", item.getColor());
+                    map.put("price", item.getPrice());
+                    map.put("number", item.getNumber());
+                    cart_data.add(map);
+                }
             }
             CartLvAdapter adapter = new CartLvAdapter(getContext(), cart_data);
             listView.setAdapter(adapter);
