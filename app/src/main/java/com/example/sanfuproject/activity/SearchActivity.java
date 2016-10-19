@@ -29,7 +29,6 @@ public class SearchActivity extends AppCompatActivity {
     private LinkedList<Map<String, Object>> data = new LinkedList<>();
     private FreshGridAdapter adapter;
     private PullToRefreshGridView mPullRefreshGridView;
-
     int i = 1;
 
     @Override
