@@ -113,7 +113,7 @@ public class SearchActivity extends AppCompatActivity {
     private void getData() {
         Search search = JSON.parseObject(searchJson, Search.class);
         List<Search.MsgBean.GoodsInfosBean> goodsInfos = search.getMsg().getGoodsInfos();
-        System.out.println("=="+goodsInfos);
+        System.out.println("==" + goodsInfos);
         for (Search.MsgBean.GoodsInfosBean bean : goodsInfos) {
             Map<String, Object> map = new HashMap<String, Object>();
             map.put("l_img", bean.getL_img());
