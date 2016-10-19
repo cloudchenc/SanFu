@@ -28,8 +28,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initDrawerLayout();
-        RadioButton radioButton = (RadioButton) findViewById(R.id.radioButton1);
-        setDefault(new HomeFrag(), radioButton);
+        if ("购物车".equals(getIntent().getStringExtra("cart"))) {
+            RadioButton radioButton = (RadioButton) findViewById(R.id.radioButton3);
+            setDefault(new CartFrag(), radioButton);
+        } else {
+            RadioButton radioButton = (RadioButton) findViewById(R.id.radioButton1);
+            setDefault(new HomeFrag(), radioButton);
+        }
     }
 
     private void initDrawerLayout() {
@@ -62,10 +67,10 @@ public class MainActivity extends AppCompatActivity {
         getSupportFragmentManager().beginTransaction().add(R.id.right_frame, new RightFrag()).commit();
     }
 
-    private void setDefault(HomeFrag homeFrag, RadioButton radioButton) {
+    private void setDefault(Fragment fragment, RadioButton radioButton) {
         radioButton.setChecked(true);
-        getSupportFragmentManager().beginTransaction().add(R.id.framelayout, homeFrag).commit();
-        content = homeFrag;
+        getSupportFragmentManager().beginTransaction().add(R.id.framelayout, fragment).commit();
+        content = fragment;
     }
 
     public void change(View view) {

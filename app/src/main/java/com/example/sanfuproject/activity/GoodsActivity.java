@@ -1,9 +1,11 @@
 package com.example.sanfuproject.activity;
 
 import android.content.Context;
-import android.graphics.drawable.ColorDrawable;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -19,7 +21,6 @@ import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.PopupWindow;
-import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,11 +30,14 @@ import com.example.sanfuproject.activity.adapters.GoodsLvAdapter;
 import com.example.sanfuproject.activity.adapters.WinconGridAdapter;
 import com.example.sanfuproject.activity.adapters.WinproLvAdapter;
 import com.example.sanfuproject.activity.entity.Goods;
+import com.example.sanfuproject.activity.utils.MyDbBase;
+import com.example.sanfuproject.activity.entity.ShopCart;
 import com.example.sanfuproject.activity.view.MyListView;
 import com.example.sanfuproject.activity.view.ScrollViewContainer;
 import com.squareup.picasso.Picasso;
 
 import org.xutils.common.Callback;
+import org.xutils.ex.DbException;
 import org.xutils.http.RequestParams;
 import org.xutils.view.annotation.Event;
 import org.xutils.view.annotation.ViewInject;
@@ -44,7 +48,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static com.example.sanfuproject.R.id.textView;
+import static com.example.sanfuproject.activity.MyApplication.db;
 
 public class GoodsActivity extends AppCompatActivity {
 
@@ -263,6 +267,8 @@ public class GoodsActivity extends AppCompatActivity {
 
     boolean size_flag = false;
     boolean color_flag = false;
+    String size_name;
+    String color_name;
 
     private void showCartWindow() {
         // 利用layoutInflater获得View
@@ -286,6 +292,9 @@ public class GoodsActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 size_flag = true;
+                View childAt = grid_size_name.getChildAt(position);
+                TextView textView = (TextView) childAt.findViewById(R.id.win_cart_name);
+                size_name = textView.getText().toString();
                 sizeAdapter.changeSelected(position);
                 sizeAdapter.notifyDataSetInvalidated();
             }
@@ -298,6 +307,9 @@ public class GoodsActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 color_flag = true;
+                View childAt = grid_color_name.getChildAt(position);
+                TextView textView = (TextView) childAt.findViewById(R.id.win_cart_name);
+                color_name = textView.getText().toString();
                 colorAdapter.changeSelected(position);
                 colorAdapter.notifyDataSetInvalidated();
             }
@@ -327,22 +339,6 @@ public class GoodsActivity extends AppCompatActivity {
             }
         });
 
-        Button content_sure = (Button) view.findViewById(R.id.content_sure);
-        content_sure.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (grid_size_name.isSelected()) {
-                    if (grid_color_name.isSelected()) {
-
-                    } else {
-                        Toast.makeText(getApplicationContext(), "请选择颜色", Toast.LENGTH_SHORT).show();
-                    }
-                } else {
-                    Toast.makeText(getApplicationContext(), "请选择尺码", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
-
         // 下面是两种方法得到宽度和高度 getWindow().getDecorView().getWidth()
 
         final PopupWindow window = new PopupWindow(view,
@@ -369,6 +365,31 @@ public class GoodsActivity extends AppCompatActivity {
             }
         });
 
+        Button content_sure = (Button) view.findViewById(R.id.content_sure);
+        content_sure.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (size_flag) {
+                    if (color_flag) {
+                        ShopCart shopCart = new ShopCart(goods.getMsg().getGoodsPhotolist().get(0).getS_img(), goods.getMsg().getGoods().getGoods_name() + goods.getMsg().getGoods().getGoods_sn(), "尺码:" + size_name, "颜色:" + color_name, "￥" + goods.getMsg().getGoods().getMb_price() + ".00", "x" + content_num.getText());
+                        try {
+                            System.out.println("--db:" + shopCart.toString());
+                            db.save(shopCart);
+
+                            window.dismiss();
+                            jump2cart();
+                        } catch (DbException e) {
+                            e.printStackTrace();
+                        }
+                    } else {
+                        Toast.makeText(getApplicationContext(), "请选择颜色", Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+                    Toast.makeText(getApplicationContext(), "请选择尺码", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
         //popWindow消失监听方法
         window.setOnDismissListener(new PopupWindow.OnDismissListener() {
 
@@ -377,6 +398,27 @@ public class GoodsActivity extends AppCompatActivity {
 //                System.out.println("popWindow消失");
             }
         });
+    }
+
+    private void jump2cart() {
+        AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+        dialog.setTitle("加入购物车");
+        dialog.setMessage("加入购物车成功!");
+        dialog.setNegativeButton("去购物车", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                intent.putExtra("cart", "购物车");
+                startActivity(intent);
+            }
+        });
+        dialog.setPositiveButton("继续购物", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                System.out.println("--" + which);
+            }
+        });
+        dialog.create().show();
     }
 
     private void showProduct() {
