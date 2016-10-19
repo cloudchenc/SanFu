@@ -1,6 +1,7 @@
 package com.example.sanfuproject.activity;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.GridView;
@@ -25,10 +26,14 @@ import java.util.Map;
 import static com.example.sanfuproject.activity.utils.Constants.goodsSearch;
 
 public class SearchActivity extends AppCompatActivity {
+
+    Handler handler = new Handler();
     private String searchJson;
     private LinkedList<Map<String, Object>> data = new LinkedList<>();
     private FreshGridAdapter adapter;
     private PullToRefreshGridView mPullRefreshGridView;
+
+
     int i = 1;
 
     @Override
@@ -37,7 +42,6 @@ public class SearchActivity extends AppCompatActivity {
         setContentView(R.layout.activity_search);
         initData();
         initView();
-        int x=0;
     }
 
     private void initData() {
@@ -115,7 +119,6 @@ public class SearchActivity extends AppCompatActivity {
         }
         adapter.notifyDataSetChanged();
         mPullRefreshGridView.onRefreshComplete();
-//        System.out.println("--get" + data);
     }
 
     private void initView() {
@@ -132,7 +135,7 @@ public class SearchActivity extends AppCompatActivity {
         View view = findViewById(R.id.goods_list_linearlayout_no_data);
         mPullRefreshGridView.setEmptyView(view);
 
-//        GridView mGridView = mPullRefreshGridView.getRefreshableView();
+        GridView mGridView = mPullRefreshGridView.getRefreshableView();
         //设置适配器
         adapter = new FreshGridAdapter(this, data);
         mPullRefreshGridView.setAdapter(adapter);
@@ -152,17 +155,14 @@ public class SearchActivity extends AppCompatActivity {
         mPullRefreshGridView.setOnRefreshListener(new PullToRefreshBase.OnRefreshListener2<GridView>() {
             @Override
             public void onPullDownToRefresh(PullToRefreshBase<GridView> refreshView) {
-//
                 initData();
             }
 
             @Override
             public void onPullUpToRefresh(PullToRefreshBase<GridView> refreshView) {
-//
                 i++;
                 initData();
             }
-
         });
     }
 
