@@ -57,10 +57,10 @@ public class ClassifyFrag extends Fragment {
             }
         });
 
-            for (int i = 0; i < category.size(); i++) {
-                classList.add(category.get(i).getName().replace(" ", ""));
+        for (int i = 0; i < category.size(); i++) {
+            classList.add(category.get(i).getName().replace(" ", ""));
 //                System.out.println("--" + classList.toString());
-            }
+        }
 
         handler.post(new Runnable() {
             @Override
@@ -73,7 +73,6 @@ public class ClassifyFrag extends Fragment {
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 //                        System.out.println("--item");
                         change(position);
-
                     }
                 });
                 viewPager = (ViewPager) view.findViewById(R.id.viewpager);
