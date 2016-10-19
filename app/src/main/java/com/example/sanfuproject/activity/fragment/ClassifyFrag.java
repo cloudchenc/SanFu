@@ -59,7 +59,7 @@ public class ClassifyFrag extends Fragment {
 
             for (int i = 0; i < category.size(); i++) {
                 classList.add(category.get(i).getName().replace(" ", ""));
-//                System.out.println("--" + classList.toString());
+                System.out.println("--" + classList.toString());
             }
 
         handler.post(new Runnable() {

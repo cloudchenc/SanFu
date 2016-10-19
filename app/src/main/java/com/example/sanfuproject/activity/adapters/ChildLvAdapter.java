@@ -82,7 +82,7 @@ public class ChildLvAdapter extends BaseAdapter {
                 item_data.add(map);
             }
         }
-//        System.out.println("--" + item_data);
+        System.out.println("--" + item_data);
     }
 
     class ViewHolder {

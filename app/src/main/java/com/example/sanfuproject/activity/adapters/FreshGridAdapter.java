@@ -11,7 +11,6 @@ import android.widget.TextView;
 import com.example.sanfuproject.R;
 import com.squareup.picasso.Picasso;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Map;
 
