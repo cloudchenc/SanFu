@@ -34,7 +34,7 @@ public class ClassifyFrag extends Fragment {
     private View view;
     private Handler handler = new Handler();
     private ArrayList<String> classList = new ArrayList<String>();
-    private ArrayList<Fragment> vpList;
+    private ArrayList<Fragment> vpList= new ArrayList<Fragment>();
     private LvAdapter adapter;
     private ViewPager viewPager;
 
@@ -76,7 +76,6 @@ public class ClassifyFrag extends Fragment {
                     }
                 });
                 viewPager = (ViewPager) view.findViewById(R.id.viewpager);
-                vpList = new ArrayList<Fragment>();
                 for (int i = 0; i < 4; i++) {
                     vpList.add(FragmentFactory.createFragment(i));
                 }
