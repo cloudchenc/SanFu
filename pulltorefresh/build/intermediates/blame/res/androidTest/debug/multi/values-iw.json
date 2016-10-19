@@ -1,6 +1,10 @@
 [
     {
+<<<<<<< HEAD
         "outputFile": "F:\\Sanfu\\pulltorefresh\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values-iw\\values-iw.xml",
+=======
+        "outputFile": "D:\\cc\\studio-workspace\\Sanfu\\pulltorefresh\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values-iw\\values-iw.xml",
+>>>>>>> 45a0ef5c1a7022184614198c6631bd5d7542e01b
         "map": [
             {
                 "to": {
@@ -11,7 +15,11 @@
                     "endOffset": 118
                 },
                 "from": {
+<<<<<<< HEAD
                     "file": "F:\\Sanfu\\pulltorefresh\\build\\intermediates\\bundles\\debug\\res\\values-iw\\values-iw.xml",
+=======
+                    "file": "D:\\cc\\studio-workspace\\Sanfu\\pulltorefresh\\build\\intermediates\\bundles\\debug\\res\\values-iw\\values-iw.xml",
+>>>>>>> 45a0ef5c1a7022184614198c6631bd5d7542e01b
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,
@@ -30,7 +38,11 @@
                     "endOffset": 185
                 },
                 "from": {
+<<<<<<< HEAD
                     "file": "F:\\Sanfu\\pulltorefresh\\build\\intermediates\\bundles\\debug\\res\\values-iw\\values-iw.xml",
+=======
+                    "file": "D:\\cc\\studio-workspace\\Sanfu\\pulltorefresh\\build\\intermediates\\bundles\\debug\\res\\values-iw\\values-iw.xml",
+>>>>>>> 45a0ef5c1a7022184614198c6631bd5d7542e01b
                     "position": {
                         "startLine": 3,
                         "startColumn": 4,
@@ -49,7 +61,73 @@
                     "endOffset": 256
                 },
                 "from": {
+<<<<<<< HEAD
                     "file": "F:\\Sanfu\\pulltorefresh\\build\\intermediates\\bundles\\debug\\res\\values-iw\\values-iw.xml",
+=======
+                    "file": "D:\\cc\\studio-workspace\\Sanfu\\pulltorefresh\\build\\intermediates\\bundles\\debug\\res\\values-iw\\values-iw.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 190,
+                        "endColumn": 70,
+                        "endOffset": 256
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "outputFile": "D:\\Workspace\\studio-workspace\\Sanfu\\pulltorefresh\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values-iw\\values-iw.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 67,
+                    "endOffset": 118
+                },
+                "from": {
+                    "file": "D:\\Workspace\\studio-workspace\\Sanfu\\pulltorefresh\\build\\intermediates\\bundles\\debug\\res\\values-iw\\values-iw.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 55,
+                        "endColumn": 67,
+                        "endOffset": 118
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 3,
+                    "startColumn": 4,
+                    "startOffset": 123,
+                    "endColumn": 66,
+                    "endOffset": 185
+                },
+                "from": {
+                    "file": "D:\\Workspace\\studio-workspace\\Sanfu\\pulltorefresh\\build\\intermediates\\bundles\\debug\\res\\values-iw\\values-iw.xml",
+                    "position": {
+                        "startLine": 3,
+                        "startColumn": 4,
+                        "startOffset": 123,
+                        "endColumn": 66,
+                        "endOffset": 185
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 4,
+                    "startColumn": 4,
+                    "startOffset": 190,
+                    "endColumn": 70,
+                    "endOffset": 256
+                },
+                "from": {
+                    "file": "D:\\Workspace\\studio-workspace\\Sanfu\\pulltorefresh\\build\\intermediates\\bundles\\debug\\res\\values-iw\\values-iw.xml",
+>>>>>>> 45a0ef5c1a7022184614198c6631bd5d7542e01b
                     "position": {
                         "startLine": 4,
                         "startColumn": 4,
